@@ -29,35 +29,51 @@ class Socio extends AppModel {
 		'numeroexp' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'identificacion' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'unique' => array(
+				'rule' => 'isUnique'),
 			),
 		),
 		'nombre' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'apellido1' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+			),
+		),
+		'genero' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+			),
+		),
+		'area_terreno' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'numeric' => array(
+				'rule' => array('numeric')),
+
+			),
+		),
+		'area_certificada' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'numeric' => array(
+				'rule' => array('numeric')),
+			),
+		),
+		'email' => array(
+			'email' => array(
+				'rule' => array('email'),
+			),
+		),
+		
 	);
-	
-	
 	
 }
