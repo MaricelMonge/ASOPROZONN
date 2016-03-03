@@ -2,6 +2,7 @@
 <?php echo $this->Form->create('Proveedore'); ?>
 	<fieldset>
 		<legend><?php echo __('Editar Proveedor'); ?></legend>
+		<div><?php echo $this->Form->input('identificacion', array('label' => 'Identificacion: '));?></div>
 		<div title="Cambie el nombre"><?php echo $this->Form->input('nombre', array('label' => 'Nombre: '));?></div>
 		<div title="Cambie el primer apellido"><?php echo $this->Form->input('apellido1', array('label' => 'Primer Apellido: '));?></div>
 		<div title="Cambie el segundo apellido"><?php echo $this->Form->input('apellido2', array('label' => 'Segundo Apellido: '));?></div>

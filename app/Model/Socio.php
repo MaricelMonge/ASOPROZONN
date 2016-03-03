@@ -68,9 +68,9 @@ class Socio extends AppModel {
 				'rule' => array('numeric')),
 			),
 		),
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
+		'telefono' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 			),
 		),
 		

@@ -2,6 +2,7 @@
 <?php echo $this->Form->create('Insumo'); ?>
 	<fieldset>
 		<legend><?php echo __('Editar Insumo'); ?></legend>
+		<div><?php echo $this->Form->input('codigo', array('label' => 'Codigo: '));?></div>
 		<div title="Cambie el nombre"><?php echo $this->Form->input('nombre', array('label' => 'Nombre: '));?></div>
 		<div title="Cambie el precio"><?php echo $this->Form->input('precio', array('label' => 'Precio: '));?></div>
 		<div title="Cambie la descripción"><?php echo $this->Form->input('descripcion', array('label' => 'Descripción: '));?></div>

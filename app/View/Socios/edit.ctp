@@ -2,6 +2,7 @@
 <?php echo $this->Form->create('Socio'); ?>
 	<fieldset>
 		<legend><?php echo __('Editar Socio'); ?></legend>
+		<div><?php echo $this->Form->input('numeroexp', array('label' => 'N. Expediente: '));?></div>
 		<div title="Cambie el numero de identificacion"><?php echo $this->Form->input('identificacion', array('label' => 'Identificación: '));?></div>
 		<div title="Cambie el nombre"><?php echo $this->Form->input('nombre', array('label' => 'Nombre: '));?></div>
 		<div title="Cambie el primer apellido"><?php echo $this->Form->input('apellido1', array('label' => 'Primer Apellido: '));?></div>

@@ -29,6 +29,8 @@ class Cliente extends AppModel {
 		'identificacion' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				'unique' => array(
+				'rule' => 'isUnique'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

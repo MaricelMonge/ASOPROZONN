@@ -11,17 +11,17 @@
 			<?php echo h($cliente['Cliente']['nombre']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Apellido1'); ?></dt>
+		<dt><?php echo __('Primer Apellido'); ?></dt>
 		<dd>
 			<?php echo h($cliente['Cliente']['apellido1']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Apellido2'); ?></dt>
+		<dt><?php echo __('Segundo Apellido'); ?></dt>
 		<dd>
 			<?php echo h($cliente['Cliente']['apellido2']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Telefono'); ?></dt>
+		<dt><?php echo __('Telefonos'); ?></dt>
 		<dd>
 			<?php echo h($cliente['Cliente']['telefono']); ?>
 			&nbsp;
@@ -34,11 +34,11 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Actividades'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Cliente'), array('action' => 'edit', $cliente['Cliente']['identificacion'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Cliente'), array('action' => 'delete', $cliente['Cliente']['identificacion']), array('confirm' => __('Are you sure you want to delete # %s?', $cliente['Cliente']['identificacion']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Clientes'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cliente'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Editar Cliente'), array('action' => 'edit', $cliente['Cliente']['identificacion'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Eliminar Cliente'), array('action' => 'delete', $cliente['Cliente']['identificacion']), array('confirm' => __('Esta seguro de eliminar # %s?', $cliente['Cliente']['identificacion']))); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista de Clientes'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Cliente'), array('action' => 'add')); ?> </li>
 	</ul>
 </div>
