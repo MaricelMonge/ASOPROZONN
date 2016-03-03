@@ -6,7 +6,6 @@
 		<div title="Cambie el nombre"><?php echo $this->Form->input('nombre', array('label' => 'Nombre: '));?></div>
 		<div title="Cambie el primer apellido"><?php echo $this->Form->input('apellido1', array('label' => 'Primer Apellido: '));?></div>
 		<div title="Cambie el segundo apellido"><?php echo $this->Form->input('apellido2', array('label' => 'Segundo Apellido: '));?></div>
-		<div title="Cambie la fecha de nacimiento"><?php echo $this->Form->input('fecha_nacimiento', array('type'=>'date','label' => 'Fecha de Nacimiento: '));?></div>
 		<div title="Cambie los números de contacto"><?php echo $this->Form->input('telefono', array('label' => 'Teléfonos: '));?></div>
 		<div title="Cambie el correo electrónico"><?php echo $this->Form->input('email', array('label' => 'Correo Electrónico: '));?></div>
 		<div title="Seleccion el género"><?php echo $this->Form->input('genero', array('options'=>array('Masculino'=>'Masculino', 'Femenino'=>'Femenino'),'id'=>'options','label' => 'Género: '));?></div>

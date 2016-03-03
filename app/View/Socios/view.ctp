@@ -11,15 +11,13 @@
 		<dd><?php echo h($socio['Socio']['apellido1']); ?>&nbsp;</dd>
 		<dt><?php echo __('Segundo Apellido'); ?></dt>
 		<dd><?php echo h($socio['Socio']['apellido2']); ?>&nbsp;</dd>
-		<dt><?php echo __('F. Nacimiento'); ?></dt>
-		<dd><?php echo h($socio['Socio']['fecha_nacimiento']); ?>&nbsp;</dd>
 		<dt><?php echo __('Telefonos'); ?></dt>
 		<dd><?php echo h($socio['Socio']['telefono']); ?>&nbsp;</dd>
 		<dt><?php echo __('Email'); ?></dt>
 		<dd><?php echo h($socio['Socio']['email']); ?>&nbsp;</dd>
 		<dt><?php echo __('Genero'); ?></dt>
 		<dd><?php echo h($socio['Socio']['genero']); ?>&nbsp;</dd>
-		<dt><?php echo __('F. Ingreso'); ?></dt>
+		<dt><?php echo __('Fecha Ingreso'); ?></dt>
 		<dd><?php echo h($socio['Socio']['fecha_ingreso']); ?>&nbsp;</dd>
 		<dt><?php echo __('Lugar Residencia'); ?></dt>
 		<dd><?php echo h($socio['Socio']['lugar_residencia']); ?>&nbsp;</dd>

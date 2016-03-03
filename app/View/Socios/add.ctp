@@ -6,7 +6,6 @@
 		<div title="Inserte el nombre"><?php echo $this->Form->input('nombre', array('label' => 'Nombre: '));?></div>
 		<div title="Inserte el primer apellido"><?php echo $this->Form->input('apellido1', array('label' => 'Primer Apellido: '));?></div>
 		<div title="Inserte el segundo apellido"><?php echo $this->Form->input('apellido2', array('label' => 'Segundo Apellido: '));?></div>
-		<div title="Inserte la fecha de nacimiento"><?php echo $this->Form->input('fecha_nacimiento', array('type'=>'date','label' => 'Fecha de Nacimiento: '));?></div>
 		<div title="Inserte los números de contacto"><?php echo $this->Form->input('telefono', array('label' => 'Teléfonos: '));?></div>
 		<div title="Inserte el correo electrónico"><?php echo $this->Form->input('email', array('label' => 'Correo Electrónico: '));?></div>
 		<div title="Seleccion el género"><?php echo $this->Form->input('genero', array('options'=>array('Masculino'=>'Masculino', 'Femenino'=>'Femenino'),'id'=>'options','label' => 'Género: '));?></div>
