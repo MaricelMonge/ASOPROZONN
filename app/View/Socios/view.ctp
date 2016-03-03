@@ -35,7 +35,7 @@
 	<h3><?php echo __('Actividad'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Editar Socio'), array('action' => 'edit', $socio['Socio']['numeroexp'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Eliminar Socio'), array('action' => 'delete', $socio['Socio']['numeroexp']), array('confirm' => __('Are you sure you want to delete # %s?', $socio['Socio']['numeroexp']))); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Eliminar Socio'), array('action' => 'delete', $socio['Socio']['numeroexp']), array('confirm' => __('Esta seguro de eliminar # %s?', $socio['Socio']['numeroexp']))); ?> </li>
 		<li><?php echo $this->Html->link(__('Lista de Socios'), array('action' => 'index')); ?> </li>
 	</ul>
 </div>

@@ -23,7 +23,7 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}')
+		'format' => __('Página {:page} of {:pages}')
 	));
 	?>	</p>
 	<div class="paging">
