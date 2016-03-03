@@ -1,10 +1,10 @@
 <?php
-App::uses('SociosController', 'Controller');
+App::uses('PagosController', 'Controller');
 
 /**
- * SociosController Test Case
+ * PagosController Test Case
  */
-class SociosControllerTest extends ControllerTestCase {
+class PagosControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -12,13 +12,8 @@ class SociosControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.socio',
-		'app.producto',
-		'app.productos_socio',
-		'app.proveedore',
-		'app.insumo',
-		'app.insumos_proveedore',
-		'app.proveedores_socio'
+		'app.pago',
+		'app.idventa'
 	);
 
 /**

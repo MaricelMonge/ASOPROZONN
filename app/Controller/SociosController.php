@@ -57,6 +57,9 @@ class SociosController extends AppController {
 				$this->Flash->error(__('The socio could not be saved. Please, try again.'));
 			}
 		}
+		$productos = $this->Socio->Producto->find('list');
+		$proveedores = $this->Socio->Proveedore->find('list');
+		$this->set(compact('productos', 'proveedores'));
 	}
 
 /**
@@ -81,6 +84,9 @@ class SociosController extends AppController {
 			$options = array('conditions' => array('Socio.' . $this->Socio->primaryKey => $id));
 			$this->request->data = $this->Socio->find('first', $options);
 		}
+		$productos = $this->Socio->Producto->find('list');
+		$proveedores = $this->Socio->Proveedore->find('list');
+		$this->set(compact('productos', 'proveedores'));
 	}
 
 /**

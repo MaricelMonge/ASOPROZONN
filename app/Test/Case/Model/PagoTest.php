@@ -1,10 +1,10 @@
 <?php
-App::uses('Cliente', 'Model');
+App::uses('Pago', 'Model');
 
 /**
- * Cliente Test Case
+ * Pago Test Case
  */
-class ClienteTest extends CakeTestCase {
+class PagoTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -12,9 +12,8 @@ class ClienteTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.cliente',
-		'app.producto',
-		'app.clientes_producto'
+		'app.pago',
+		'app.idventa'
 	);
 
 /**
@@ -24,7 +23,7 @@ class ClienteTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Cliente = ClassRegistry::init('Cliente');
+		$this->Pago = ClassRegistry::init('Pago');
 	}
 
 /**
@@ -33,7 +32,7 @@ class ClienteTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Cliente);
+		unset($this->Pago);
 
 		parent::tearDown();
 	}

@@ -6,7 +6,6 @@ App::uses('AppController', 'Controller');
  * @property Proveedore $Proveedore
  * @property PaginatorComponent $Paginator
  * @property FlashComponent $Flash
- * @property nComponent $n
  * @property SessionComponent $Session
  */
 class ProveedoresController extends AppController {
@@ -58,6 +57,9 @@ class ProveedoresController extends AppController {
 				$this->Flash->error(__('The proveedore could not be saved. Please, try again.'));
 			}
 		}
+		$insumos = $this->Proveedore->Insumo->find('list');
+		$socios = $this->Proveedore->Socio->find('list');
+		$this->set(compact('insumos', 'socios'));
 	}
 
 /**
@@ -82,6 +84,9 @@ class ProveedoresController extends AppController {
 			$options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
 			$this->request->data = $this->Proveedore->find('first', $options);
 		}
+		$insumos = $this->Proveedore->Insumo->find('list');
+		$socios = $this->Proveedore->Socio->find('list');
+		$this->set(compact('insumos', 'socios'));
 	}
 
 /**

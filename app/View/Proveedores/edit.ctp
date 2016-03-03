@@ -1,22 +1,30 @@
 <div class="proveedores form">
 <?php echo $this->Form->create('Proveedore'); ?>
 	<fieldset>
-		<legend><?php echo __('Editar Proveedor'); ?></legend>
-		<div><?php echo $this->Form->input('identificacion', array('label' => 'Identificacion: '));?></div>
-		<div title="Cambie el nombre"><?php echo $this->Form->input('nombre', array('label' => 'Nombre: '));?></div>
-		<div title="Cambie el primer apellido"><?php echo $this->Form->input('apellido1', array('label' => 'Primer Apellido: '));?></div>
-		<div title="Cambie el segundo apellido"><?php echo $this->Form->input('apellido2', array('label' => 'Segundo Apellido: '));?></div>
-		<div title="Cambie el numero de telefono"><?php echo $this->Form->input('telefono', array('label' => 'Telefonos: '));?></div>
-		<div title="Cambie el correo electronico"><?php echo $this->Form->input('email', array('label' => 'Correo Electronico: '));?></div>
-		<div title="Cambie el nombre de la empresa"><?php echo $this->Form->input('nombre_empresa', array('label' => 'Nombre de la empresa: '));?></div>
+		<legend><?php echo __('Edit Proveedore'); ?></legend>
+	<?php
+		echo $this->Form->input('identificacion');
+		echo $this->Form->input('nombre');
+		echo $this->Form->input('apellido1');
+		echo $this->Form->input('apellido2');
+		echo $this->Form->input('telefono');
+		echo $this->Form->input('email');
+		echo $this->Form->input('nombre_empresa');
+		echo $this->Form->input('Insumo');
+		echo $this->Form->input('Socio');
+	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Editar')); ?>
+<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actividad'); ?></h3>
+	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Eliminar Proveedor'), array('action' => 'delete', $this->Form->value('Proveedore.identificacion')), array('confirm' => __('Esta seguro de eliminar # %s?', $this->Form->value('Proveedore.identificacion')))); ?></li>
-		<li><?php echo $this->Html->link(__('Lista de Proveedores'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Proveedore.identificacion')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Proveedore.identificacion')))); ?></li>
+		<li><?php echo $this->Html->link(__('List Proveedores'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Insumos'), array('controller' => 'insumos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Insumo'), array('controller' => 'insumos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Socios'), array('controller' => 'socios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Socio'), array('controller' => 'socios', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

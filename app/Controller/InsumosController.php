@@ -57,6 +57,8 @@ class InsumosController extends AppController {
 				$this->Flash->error(__('The insumo could not be saved. Please, try again.'));
 			}
 		}
+		$proveedores = $this->Insumo->Proveedore->find('list');
+		$this->set(compact('proveedores'));
 	}
 
 /**
@@ -81,6 +83,8 @@ class InsumosController extends AppController {
 			$options = array('conditions' => array('Insumo.' . $this->Insumo->primaryKey => $id));
 			$this->request->data = $this->Insumo->find('first', $options);
 		}
+		$proveedores = $this->Insumo->Proveedore->find('list');
+		$this->set(compact('proveedores'));
 	}
 
 /**

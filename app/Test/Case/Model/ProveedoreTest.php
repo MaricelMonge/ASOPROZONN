@@ -12,7 +12,11 @@ class ProveedoreTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.proveedore'
+		'app.proveedore',
+		'app.insumo',
+		'app.insumos_proveedore',
+		'app.socio',
+		'app.proveedores_socio'
 	);
 
 /**

@@ -12,7 +12,17 @@ class ProductosControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.producto'
+		'app.producto',
+		'app.cliente',
+		'app.clientes_producto',
+		'app.factura',
+		'app.facturas_producto',
+		'app.socio',
+		'app.productos_socio',
+		'app.proveedore',
+		'app.insumo',
+		'app.insumos_proveedore',
+		'app.proveedores_socio'
 	);
 
 /**

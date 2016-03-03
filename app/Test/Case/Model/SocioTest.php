@@ -12,7 +12,13 @@ class SocioTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.socio'
+		'app.socio',
+		'app.producto',
+		'app.productos_socio',
+		'app.proveedore',
+		'app.insumo',
+		'app.insumos_proveedore',
+		'app.proveedores_socio'
 	);
 
 /**

@@ -12,7 +12,9 @@ class InsumoTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.insumo'
+		'app.insumo',
+		'app.proveedore',
+		'app.insumos_proveedore'
 	);
 
 /**

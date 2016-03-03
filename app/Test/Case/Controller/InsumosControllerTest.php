@@ -12,7 +12,9 @@ class InsumosControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.insumo'
+		'app.insumo',
+		'app.proveedore',
+		'app.insumos_proveedore'
 	);
 
 /**

@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Cliente Model
  *
+ * @property Producto $Producto
  */
 class Cliente extends AppModel {
 
@@ -14,13 +15,6 @@ class Cliente extends AppModel {
 	public $primaryKey = 'identificacion';
 
 /**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'nombre';
-
-/**
  * Validation rules
  *
  * @var array
@@ -29,8 +23,6 @@ class Cliente extends AppModel {
 		'identificacion' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
-				'unique' => array(
-				'rule' => 'isUnique'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -69,4 +61,28 @@ class Cliente extends AppModel {
 			),
 		),
 	);
+
+	// The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasAndBelongsToMany associations
+ *
+ * @var array
+ */
+	public $hasAndBelongsToMany = array(
+		'Producto' => array(
+			'className' => 'Producto',
+			'joinTable' => 'clientes_productos',
+			'foreignKey' => 'cliente_id',
+			'associationForeignKey' => 'producto_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		)
+	);
+
 }

@@ -1,10 +1,10 @@
 <?php
-App::uses('Producto', 'Model');
+App::uses('Factura', 'Model');
 
 /**
- * Producto Test Case
+ * Factura Test Case
  */
-class ProductoTest extends CakeTestCase {
+class FacturaTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -12,9 +12,11 @@ class ProductoTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
+		'app.factura',
 		'app.producto',
 		'app.cliente',
 		'app.clientes_producto',
+		'app.facturas_producto',
 		'app.socio',
 		'app.productos_socio',
 		'app.proveedore',
@@ -30,7 +32,7 @@ class ProductoTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Producto = ClassRegistry::init('Producto');
+		$this->Factura = ClassRegistry::init('Factura');
 	}
 
 /**
@@ -39,7 +41,7 @@ class ProductoTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Producto);
+		unset($this->Factura);
 
 		parent::tearDown();
 	}

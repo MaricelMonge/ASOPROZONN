@@ -3,6 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Proveedore Model
  *
+ * @property Insumo $Insumo
+ * @property Socio $Socio
  */
 class Proveedore extends AppModel {
 
@@ -14,13 +16,6 @@ class Proveedore extends AppModel {
 	public $primaryKey = 'identificacion';
 
 /**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'identificacion';
-
-/**
  * Validation rules
  *
  * @var array
@@ -29,34 +24,79 @@ class Proveedore extends AppModel {
 		'identificacion' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'nombre' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
-			),
-			'alphaNumeric' => array(
-				'rule' => array('alphaNumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 		'apellido1' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
-			),
-			'alphaNumeric' => array(
-				'rule' => array('alphaNumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-
 		'telefono' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
-			),
-			'alphaNumeric' => array(
-				'rule' => array('alphaNumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-
-
 	);
+
+	// The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasAndBelongsToMany associations
+ *
+ * @var array
+ */
+	public $hasAndBelongsToMany = array(
+		'Insumo' => array(
+			'className' => 'Insumo',
+			'joinTable' => 'insumos_proveedores',
+			'foreignKey' => 'proveedore_id',
+			'associationForeignKey' => 'insumo_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		),
+		'Socio' => array(
+			'className' => 'Socio',
+			'joinTable' => 'proveedores_socios',
+			'foreignKey' => 'proveedore_id',
+			'associationForeignKey' => 'socio_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		)
+	);
+
 }

@@ -1,18 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Insumo Model
+ * Factura Model
  *
- * @property Proveedore $Proveedore
+ * @property Producto $Producto
  */
-class Insumo extends AppModel {
+class Factura extends AppModel {
 
 /**
  * Primary key field
  *
  * @var string
  */
-	public $primaryKey = 'codigo';
+	public $primaryKey = 'idventa';
 
 /**
  * Validation rules
@@ -20,7 +20,7 @@ class Insumo extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'codigo' => array(
+		'idventa' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -30,9 +30,19 @@ class Insumo extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'nombre' => array(
-			'notBlank' => array(
-				'rule' => array('notBlank'),
+		'monto_total' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'fecha' => array(
+			'date' => array(
+				'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -50,11 +60,11 @@ class Insumo extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Proveedore' => array(
-			'className' => 'Proveedore',
-			'joinTable' => 'insumos_proveedores',
-			'foreignKey' => 'insumo_id',
-			'associationForeignKey' => 'proveedore_id',
+		'Producto' => array(
+			'className' => 'Producto',
+			'joinTable' => 'facturas_productos',
+			'foreignKey' => 'factura_id',
+			'associationForeignKey' => 'producto_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
