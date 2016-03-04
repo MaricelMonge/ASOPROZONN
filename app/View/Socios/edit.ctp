@@ -1,7 +1,9 @@
 <div class="socios form">
 <?php echo $this->Form->create('Socio'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Socio'); ?></legend>
+		<div class="page-header">
+		<h2><?php echo __('Editar Socio'); ?></h2>
+	</div>
 	<?php
 		echo $this->Form->input('numeroexp');
 		echo $this->Form->input('identificacion');

@@ -1,5 +1,7 @@
 <div class="socios view">
-<h2><?php echo __('Socio'); ?></h2>
+<div class="page-header">
+		<h2><?php echo __('Socio'); ?></h2>
+	</div>
 	<dl>
 		<dt><?php echo __('Numeroexp'); ?></dt>
 		<dd>

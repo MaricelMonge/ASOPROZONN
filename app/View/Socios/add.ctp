@@ -1,37 +1,39 @@
-<div class="socios form">
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
 <?php echo $this->Form->create('Socio'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Socio'); ?></legend>
-	<?php
-		echo $this->Form->input('identificacion');
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('apellido1');
-		echo $this->Form->input('apellido2');
-		echo $this->Form->input('telefono');
-		echo $this->Form->input('email');
-		echo $this->Form->input('genero');
-		echo $this->Form->input('fecha_ingreso');
-		echo $this->Form->input('lugar_residencia');
-		echo $this->Form->input('trabajadores_finca');
-		echo $this->Form->input('area_terreno');
-		echo $this->Form->input('area_certificada');
-		echo $this->Form->input('actividad_extra');
-		echo $this->Form->input('image');
-		echo $this->Form->input('image_dir');
-		echo $this->Form->input('Producto');
-		echo $this->Form->input('Proveedore');
+	<div class="page-header">
+		<h2><?php echo __('Nuevo Socio'); ?></h2>
+	</div>
+	<?php 
+	echo $this->Form->input('identificacion', array('class'=>'form-control','label'=>'Identificación:'));
+	echo $this->Form->input('nombre', array('class'=>'form-control','label'=>'Nombre:'));
+	echo $this->Form->input('apellido1', array('class'=>'form-control','label'=>'Primer Apellido:'));
+	echo $this->Form->input('apellido2', array('class'=>'form-control','label'=>'Segundo Apellido:'));
+	echo $this->Form->input('telefono', array('class'=>'form-control','label'=>'Teléfonos:')); 
+	echo $this->Form->input('email', array('class'=>'form-control','label'=>'Correo Electrónico:')); ?>
+	<div>&nbsp</div>
+	<?php echo $this->Form->input('genero', array('options'=>array('Masculino'=>'Masculino', 'Femenino'=>'Femenino'),'label'=>'Género:'));?>
+	<div>&nbsp</div>
+	<?php 
+	echo $this->Form->input('lugar_residencia', array('class'=>'form-control','label'=>'Lugar de Residencia:'));
+	echo $this->Form->input('trabajadores_finca', array('class'=>'form-control','label'=>'Trabajadores de finca:'));
+	echo $this->Form->input('area_terreno', array('class'=>'form-control','label'=>'Área del terreno:'));
+	echo $this->Form->input('area_certificada', array('class'=>'form-control','label'=>'Área Certificada:'));
+	echo $this->Form->input('actividad_extra', array('class'=>'form-control','label'=>'Actividad extra:'));
 	?>
+	<br>
+	<?php echo $this->Form->input('fecha_ingreso', array('type'=>'date','label'=>'Fecha de Ingreso: '));?>
+	
+	<div><?php echo $this->Form->input('image', array('type'=>'file','label'=>'Foto: ', 'id'=>'foto', 'class'=>'file', 'data-show-upload'=>'false','data-show-caption'=>'true'));?> </div>
+	<div>&nbsp</div>
+	<div><?php echo $this->Form->input('image_dir',array('type'=>'hidden'));?></div>
+	<div>&nbsp</div>
+	
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(array('label'=>'Crear Socio', 'class'=>'btn btn-success')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+</div>
+</div>
 
-		<li><?php echo $this->Html->link(__('List Socios'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Proveedores'), array('controller' => 'proveedores', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Proveedore'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
