@@ -15,11 +15,23 @@ class Socio extends AppModel {
  */
 	public $primaryKey = 'numeroexp';
 
-/**
- * Validation rules
- *
- * @var array
- */
+	public $actsAs = array(
+		'Upload.Upload'=>array(
+			'image'=>array(
+				'fields'=>array(
+					'dir'=>'image_dir'
+				),
+				'thumbnailMethod'=>'php',
+				'thumbnailSizes'=>array(
+					'vga'=>'640x480',
+					'thumb'=>'150x150'
+				),
+				'deleteOnUpdate'=>true,
+				'deleteFolderOnDelete'=>true
+			)
+		)
+	);
+
 	public $validate = array(
 		'numeroexp' => array(
 			'numeric' => array(

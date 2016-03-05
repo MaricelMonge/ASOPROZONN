@@ -22,7 +22,8 @@
 	<td><?php echo h($socio['Socio']['apellido1']); ?>&nbsp;</td>
 	<td><?php echo h($socio['Socio']['apellido2']); ?>&nbsp;</td>
 	<td><?php echo h($socio['Socio']['telefono']); ?>&nbsp;</td>
-	<td><?php echo h($socio['Socio']['image']); ?>&nbsp;</td>
+	<td><?php echo $this->Html->image('../files/socio/image/' . $socio['Socio']['image_dir'].'/'.'thumb_'.$socio['Socio']['image']);?></td>
+	
 	<td class="actions">
 		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $socio['Socio']['numeroexp']), array('class'=>'btn btn-xs btn-success')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $socio['Socio']['numeroexp']), array('class'=>'btn btn-xs btn-success')); ?>

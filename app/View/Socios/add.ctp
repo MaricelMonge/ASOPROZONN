@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-<?php echo $this->Form->create('Socio'); ?>
+<?php echo $this->Form->create('Socio', array('type'=>'file', 'novalidate'=>'novalidate')); ?>
 	<fieldset>
 	<div class="page-header">
 		<h2><?php echo __('Nuevo Socio'); ?></h2>
@@ -16,6 +16,8 @@
 	<div>&nbsp</div>
 	<?php echo $this->Form->input('genero', array('options'=>array('Masculino'=>'Masculino', 'Femenino'=>'Femenino'),'label'=>'Género:'));?>
 	<div>&nbsp</div>
+	<?php echo $this->Form->input('fecha_ingreso', array('type'=>'date','label'=>'Fecha de Ingreso: '));?>
+	<div>&nbsp</div>
 	<?php 
 	echo $this->Form->input('lugar_residencia', array('class'=>'form-control','label'=>'Lugar de Residencia:'));
 	echo $this->Form->input('trabajadores_finca', array('class'=>'form-control','label'=>'Trabajadores de finca:'));
@@ -23,14 +25,11 @@
 	echo $this->Form->input('area_certificada', array('class'=>'form-control','label'=>'Área Certificada:'));
 	echo $this->Form->input('actividad_extra', array('class'=>'form-control','label'=>'Actividad extra:'));
 	?>
-	<br>
-	<?php echo $this->Form->input('fecha_ingreso', array('type'=>'date','label'=>'Fecha de Ingreso: '));?>
-	
 	<div><?php echo $this->Form->input('image', array('type'=>'file','label'=>'Foto: ', 'id'=>'foto', 'class'=>'file', 'data-show-upload'=>'false','data-show-caption'=>'true'));?> </div>
 	<div>&nbsp</div>
 	<div><?php echo $this->Form->input('image_dir',array('type'=>'hidden'));?></div>
 	<div>&nbsp</div>
-	
+
 	</fieldset>
 <?php echo $this->Form->end(array('label'=>'Crear Socio', 'class'=>'btn btn-success')); ?>
 </div>
