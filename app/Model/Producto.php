@@ -55,8 +55,8 @@ class Producto extends AppModel {
 		'Cliente' => array(
 			'className' => 'Cliente',
 			'joinTable' => 'clientes_productos',
-			'foreignKey' => 'producto_id',
-			'associationForeignKey' => 'cliente_id',
+			'foreignKey' => 'codigo_id',
+			'associationForeignKey' => 'identificacion_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
@@ -68,8 +68,8 @@ class Producto extends AppModel {
 		'Factura' => array(
 			'className' => 'Factura',
 			'joinTable' => 'facturas_productos',
-			'foreignKey' => 'producto_id',
-			'associationForeignKey' => 'factura_id',
+			'foreignKey' => 'codigo_id',
+			'associationForeignKey' => 'idventa_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
@@ -81,8 +81,8 @@ class Producto extends AppModel {
 		'Socio' => array(
 			'className' => 'Socio',
 			'joinTable' => 'productos_socios',
-			'foreignKey' => 'producto_id',
-			'associationForeignKey' => 'socio_id',
+			'foreignKey' => 'codigo_id',
+			'associationForeignKey' => 'numeroexp_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

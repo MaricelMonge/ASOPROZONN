@@ -116,8 +116,8 @@ class Socio extends AppModel {
 		'Producto' => array(
 			'className' => 'Producto',
 			'joinTable' => 'productos_socios',
-			'foreignKey' => 'socio_id',
-			'associationForeignKey' => 'producto_id',
+			'foreignKey' => 'numeroexp_id',
+			'associationForeignKey' => 'codigo_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
@@ -129,8 +129,8 @@ class Socio extends AppModel {
 		'Proveedore' => array(
 			'className' => 'Proveedore',
 			'joinTable' => 'proveedores_socios',
-			'foreignKey' => 'socio_id',
-			'associationForeignKey' => 'proveedore_id',
+			'foreignKey' => 'numeroexp_id',
+			'associationForeignKey' => 'identificacion_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

@@ -24,12 +24,11 @@
 	echo $this->Form->input('area_terreno', array('class'=>'form-control','label'=>'Área del terreno:'));
 	echo $this->Form->input('area_certificada', array('class'=>'form-control','label'=>'Área Certificada:'));
 	echo $this->Form->input('actividad_extra', array('class'=>'form-control','label'=>'Actividad extra:'));
+	echo $this->Form->input('image', array('type'=>'file','label'=>'Foto: ', 'id'=>'foto', 'class'=>'file', 'data-show-upload'=>'false','data-show-caption'=>'true'));
+	echo $this->Form->input('image_dir',array('type'=>'hidden'));
+	echo $this->Form->input('Producto',array('class'=>'form-control', 'label'=>'Productos: '));
 	?>
-	<div><?php echo $this->Form->input('image', array('type'=>'file','label'=>'Foto: ', 'id'=>'foto', 'class'=>'file', 'data-show-upload'=>'false','data-show-caption'=>'true'));?> </div>
-	<div>&nbsp</div>
-	<div><?php echo $this->Form->input('image_dir',array('type'=>'hidden'));?></div>
-	<div>&nbsp</div>
-
+	<br>
 	</fieldset>
 <?php echo $this->Form->end(array('label'=>'Crear Socio', 'class'=>'btn btn-success')); ?>
 </div>

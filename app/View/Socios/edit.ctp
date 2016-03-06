@@ -1,41 +1,65 @@
-<div class="socios form">
-<?php echo $this->Form->create('Socio'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+<?php echo $this->Form->create('Socio', array('type'=>'file', 'novalidate'=>'novalidate')); ?>
 	<fieldset>
-		<div class="page-header">
+	<div class="page-header">
 		<h2><?php echo __('Editar Socio'); ?></h2>
 	</div>
+
 	<?php
 		echo $this->Form->input('numeroexp');
-		echo $this->Form->input('identificacion');
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('apellido1');
-		echo $this->Form->input('apellido2');
-		echo $this->Form->input('telefono');
-		echo $this->Form->input('email');
-		echo $this->Form->input('genero');
-		echo $this->Form->input('fecha_ingreso');
-		echo $this->Form->input('lugar_residencia');
-		echo $this->Form->input('trabajadores_finca');
-		echo $this->Form->input('area_terreno');
-		echo $this->Form->input('area_certificada');
-		echo $this->Form->input('actividad_extra');
-		echo $this->Form->input('image');
-		echo $this->Form->input('image_dir');
-		echo $this->Form->input('Producto');
-		echo $this->Form->input('Proveedore');
+		echo $this->Form->input('identificacion', array('class'=>'form-control','label'=>'Identificación:'));
+		echo $this->Form->input('nombre', array('class'=>'form-control','label'=>'Nombre:'));
+		echo $this->Form->input('apellido1', array('class'=>'form-control','label'=>'Primer Apellido:'));
+		echo $this->Form->input('apellido2', array('class'=>'form-control','label'=>'Segundo Apellido:'));
+		echo $this->Form->input('telefono', array('class'=>'form-control','label'=>'Teléfonos:')); 
+		echo $this->Form->input('email', array('class'=>'form-control','label'=>'Correo Electrónico:')); ?>
+		<div>&nbsp</div>
+		<?php echo $this->Form->input('genero', array('options'=>array('Masculino'=>'Masculino', 'Femenino'=>'Femenino'),'label'=>'Género:'));?>
+		<div>&nbsp</div>
+		<?php echo $this->Form->input('fecha_ingreso', array('type'=>'date','label'=>'Fecha de Ingreso: '));?>
+		<div>&nbsp</div>
+		<?php 
+		echo $this->Form->input('lugar_residencia', array('class'=>'form-control','label'=>'Lugar de Residencia:'));
+		echo $this->Form->input('trabajadores_finca', array('class'=>'form-control','label'=>'Trabajadores de finca:'));
+		echo $this->Form->input('area_terreno', array('class'=>'form-control','label'=>'Área del terreno:'));
+		echo $this->Form->input('area_certificada', array('class'=>'form-control','label'=>'Área Certificada:'));
+		echo $this->Form->input('actividad_extra', array('class'=>'form-control','label'=>'Actividad extra:'));
+		echo $this->Form->input('image', array('type'=>'file','label'=>'Foto: ', 'id'=>'foto', 'class'=>'file', 'data-show-upload'=>'false','data-show-caption'=>'true'));
+		echo $this->Form->input('image_dir',array('type'=>'hidden'));
+		echo $this->Form->input('Producto',array('class'=>'form-control', 'label'=>'Productos: '));
 	?>
+	
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+	<br>
+	<?php echo $this->Form->end(array('label'=>'Editar Socio', 'class'=>'btn btn-success')); ?>
+	<br>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Socio.numeroexp')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Socio.numeroexp')))); ?></li>
-		<li><?php echo $this->Html->link(__('List Socios'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Proveedores'), array('controller' => 'proveedores', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Proveedore'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    <?php echo __('Acciones  '); ?> <span class="caret"></span>
+  </button>
+  
+  <ul class="dropdown-menu" role="menu">
+  	
+		<li><?php echo $this->Form->postLink(__('Eliminar Socio'), array('action' => 'delete', $this->Form->value('Socio.numeroexp')), array('confirm' => __('Esta seguro de eliminar # %s?', $this->Form->value('Socio.numeroexp')))); ?></li>
+		<li><?php echo $this->Html->link(__('Lista de Socios'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Nuevo Socio'), array('action'=>'add'))?></li>
+  <li class="divider"></li>
+		<li><?php echo $this->Html->link(__('Lista de Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista de Proveedores'), array('controller' => 'proveedores', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Proveedor'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+
+
+
+</div>
+
+	
+
+
