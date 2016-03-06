@@ -74,8 +74,8 @@ class Proveedore extends AppModel {
 		'Insumo' => array(
 			'className' => 'Insumo',
 			'joinTable' => 'insumos_proveedores',
-			'foreignKey' => 'proveedore_id',
-			'associationForeignKey' => 'insumo_id',
+			'foreignKey' => 'identificacion_id',
+			'associationForeignKey' => 'codigo_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
@@ -87,8 +87,8 @@ class Proveedore extends AppModel {
 		'Socio' => array(
 			'className' => 'Socio',
 			'joinTable' => 'proveedores_socios',
-			'foreignKey' => 'proveedore_id',
-			'associationForeignKey' => 'socio_id',
+			'foreignKey' => 'identificacion_id',
+			'associationForeignKey' => 'numeroexp_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

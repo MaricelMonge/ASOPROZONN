@@ -1,7 +1,7 @@
 <div class="page-header">
 <h2><?php echo __('Productos'); ?></h2>
 </div>
-<div class="col-md-20">
+<div class="col-md-12">
 <table class="table table-striped">
 <thead>
 <tr>
@@ -16,7 +16,8 @@
 <tr>
 	<td><?php echo h($producto['Producto']['nombre']); ?>&nbsp;</td>
 	<td> ₡ <?php echo h($producto['Producto']['precio']); ?>&nbsp;</td>
-	<td><?php echo h($producto['Producto']['image']); ?>&nbsp;</td>
+	<td><?php echo $this->Html->image('../files/producto/image/' . $producto['Producto']['image_dir'].'/'.'thumb_'.$producto['Producto']['image']);?></td>
+
 	<td class="actions">
 		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $producto['Producto']['codigo']),  array('class'=>'btn btn-xs btn-success')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $producto['Producto']['codigo']),  array('class'=>'btn btn-xs btn-success')); ?>

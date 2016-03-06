@@ -13,6 +13,25 @@ class Insumo extends AppModel {
  * @var string
  */
 	public $primaryKey = 'codigo';
+	
+	
+		public $actsAs = array(
+		'Upload.Upload'=>array(
+			'image'=>array(
+				'fields'=>array(
+					'dir'=>'image_dir'
+				),
+				'thumbnailMethod'=>'php',
+				'thumbnailSizes'=>array(
+					'vga'=>'640x480',
+					'thumb'=>'150x150'
+				),
+				'deleteOnUpdate'=>true,
+				'deleteFolderOnDelete'=>true
+			)
+		)
+	);
+	
 
 /**
  * Validation rules
@@ -53,8 +72,8 @@ class Insumo extends AppModel {
 		'Proveedore' => array(
 			'className' => 'Proveedore',
 			'joinTable' => 'insumos_proveedores',
-			'foreignKey' => 'insumo_id',
-			'associationForeignKey' => 'proveedore_id',
+			'foreignKey' => 'codigo_id',
+			'associationForeignKey' => 'identificacion_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

@@ -34,29 +34,6 @@
 	</fieldset>
 	<br>
 	<?php echo $this->Form->end(array('label'=>'Editar Socio', 'class'=>'btn btn-success')); ?>
-	<br>
-
-
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    <?php echo __('Acciones  '); ?> <span class="caret"></span>
-  </button>
-  
-  <ul class="dropdown-menu" role="menu">
-  	
-		<li><?php echo $this->Form->postLink(__('Eliminar Socio'), array('action' => 'delete', $this->Form->value('Socio.numeroexp')), array('confirm' => __('Esta seguro de eliminar # %s?', $this->Form->value('Socio.numeroexp')))); ?></li>
-		<li><?php echo $this->Html->link(__('Lista de Socios'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('Nuevo Socio'), array('action'=>'add'))?></li>
-  <li class="divider"></li>
-		<li><?php echo $this->Html->link(__('Lista de Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nuevo Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista de Proveedores'), array('controller' => 'proveedores', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nuevo Proveedor'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-
-
-
 
 </div>
 

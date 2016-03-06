@@ -63,8 +63,8 @@ class Factura extends AppModel {
 		'Producto' => array(
 			'className' => 'Producto',
 			'joinTable' => 'facturas_productos',
-			'foreignKey' => 'factura_id',
-			'associationForeignKey' => 'producto_id',
+			'foreignKey' => 'idventa_id',
+			'associationForeignKey' => 'codigo_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

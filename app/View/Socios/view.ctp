@@ -1,176 +1,102 @@
-<div class="socios view">
 <div class="page-header">
-		<h2><?php echo __('Socio'); ?></h2>
-	</div>
-	<dl>
-		<dt><?php echo __('Numeroexp'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['numeroexp']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Identificacion'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['identificacion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Nombre'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['nombre']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Apellido1'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['apellido1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Apellido2'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['apellido2']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Telefono'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['telefono']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Email'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['email']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Genero'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['genero']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha Ingreso'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['fecha_ingreso']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Lugar Residencia'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['lugar_residencia']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Trabajadores Finca'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['trabajadores_finca']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Area Terreno'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['area_terreno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Area Certificada'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['area_certificada']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Actividad Extra'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['actividad_extra']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['image']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Image Dir'); ?></dt>
-		<dd>
-			<?php echo h($socio['Socio']['image_dir']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<h2>Socio: <?php echo $socio['Socio']['nombre'].' '.$socio['Socio']['apellido1']; ?></h2>
+
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Socio'), array('action' => 'edit', $socio['Socio']['numeroexp'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Socio'), array('action' => 'delete', $socio['Socio']['numeroexp']), array('confirm' => __('Are you sure you want to delete # %s?', $socio['Socio']['numeroexp']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Socios'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Socio'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Proveedores'), array('controller' => 'proveedores', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Proveedore'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
+
+<div class="row">
+
+<div class="col col-sm-7">
+		<?php echo $this->Html->image('../files/socio/image/' .$socio['Socio']['image_dir'] . '/' . 'vga_' .$socio['Socio']['image'], array('class' => 'img-thumbnail img-responsive')); ?>
+		<br/>
+		<br/>
+		
+		<div class="related">
+			<h3><?php echo __('Productos'); ?></h3>
+				<?php if (!empty($socio['Producto'])): ?>
+			<table class="table table-bordered">
+				<tr>
+					<th><?php echo __('Código'); ?></th>
+					<th><?php echo __('Nombre'); ?></th>
+					<th><?php echo __('Precio'); ?></th>
+					<th class="actions"><?php echo __('Acciones'); ?></th>
+				</tr>
+				<?php foreach ($socio['Producto'] as $producto): ?>
+				<tr>
+					<td><?php echo $producto['codigo']; ?></td>
+					<td><?php echo $producto['nombre']; ?></td>
+					<td><?php echo $producto['precio']; ?></td>
+					<td class="actions">
+					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'productos', 'action' => 'view', $producto['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</table>
+			<?php endif; ?>
+		</div>
+	</div>
+
+<div class="col col-sm-5">
+	N. Expediente: <?php echo h($socio['Socio']['numeroexp']); ?>
+	<br/>
+	<br/>
+	Identificación: <?php echo $socio['Socio']['identificacion']; ?>
+	<br />
+	<br/>
+	Nombre: <?php echo $socio['Socio']['nombre']; ?>
+	<br />
+	<br/>
+	Primer Apellido: <?php echo h($socio['Socio']['apellido1']); ?>
+	<br/>
+	<br/>
+	Segundo Apellido: <?php echo $socio['Socio']['apellido2']; ?>
+	<br />
+	<br/>
+	Teléfono: <?php echo $socio['Socio']['telefono']; ?>
+	<br />
+	<br/>
+	Correo Electrónico: <?php echo h($socio['Socio']['email']); ?>
+	<br/>
+	<br/>
+	Género: <?php echo $socio['Socio']['genero']; ?>
+	<br />
+	<br/>
+	Fecha Ingreso: <?php echo $socio['Socio']['fecha_ingreso']; ?>
+	<br />
+	<br/>
+	Lugar Residencia: <?php echo h($socio['Socio']['lugar_residencia']); ?>
+	<br/>
+	<br/>
+	Trabajadores de Finca: <?php echo $socio['Socio']['trabajadores_finca']; ?>
+	<br />
+	<br/>
+	Área del Terreno: <?php echo h($socio['Socio']['area_terreno']); ?>
+	<br/>
+	<br/>
+	Área Certificada: <?php echo $socio['Socio']['area_certificada']; ?>
+	<br />
+	<br/>
+	Actividad Extra: <?php echo $socio['Socio']['actividad_extra']; ?>
+	<br />
+	<br/>
+
+	<div class="btn-group">
+	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	    <?php echo __('Acciones'); ?> <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu">
+	<li><?php echo $this->Html->link(__('Editar Socio'), array('action' => 'edit', $socio['Socio']['numeroexp'])); ?> </li>
+	<li><?php echo $this->Form->postLink(__('Eliminar Socio'), array('action' => 'delete', $socio['Socio']['numeroexp']), array('confirm' => __('Esta seguro de eliminar # %s?', $socio['Socio']['numeroexp']))); ?> </li>
+	<li><?php echo $this->Html->link(__('Lista de Socios'), array('action' => 'index')); ?> </li>
+	<li class="divider"></li>
+	<li><?php echo $this->Html->link(__('Lista de Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
+	<li><?php echo $this->Html->link(__('Nuevo Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Productos'); ?></h3>
-	<?php if (!empty($socio['Producto'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Codigo'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Precio'); ?></th>
-		<th><?php echo __('Descripcion'); ?></th>
-		<th><?php echo __('Image'); ?></th>
-		<th><?php echo __('Image Dir'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($socio['Producto'] as $producto): ?>
-		<tr>
-			<td><?php echo $producto['codigo']; ?></td>
-			<td><?php echo $producto['nombre']; ?></td>
-			<td><?php echo $producto['precio']; ?></td>
-			<td><?php echo $producto['descripcion']; ?></td>
-			<td><?php echo $producto['image']; ?></td>
-			<td><?php echo $producto['image_dir']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'productos', 'action' => 'view', $producto['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'productos', 'action' => 'edit', $producto['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'productos', 'action' => 'delete', $producto['id']), array('confirm' => __('Are you sure you want to delete # %s?', $producto['id']))); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-		</ul>
 	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Proveedores'); ?></h3>
-	<?php if (!empty($socio['Proveedore'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Identificacion'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Apellido1'); ?></th>
-		<th><?php echo __('Apellido2'); ?></th>
-		<th><?php echo __('Telefono'); ?></th>
-		<th><?php echo __('Email'); ?></th>
-		<th><?php echo __('Nombre Empresa'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($socio['Proveedore'] as $proveedore): ?>
-		<tr>
-			<td><?php echo $proveedore['identificacion']; ?></td>
-			<td><?php echo $proveedore['nombre']; ?></td>
-			<td><?php echo $proveedore['apellido1']; ?></td>
-			<td><?php echo $proveedore['apellido2']; ?></td>
-			<td><?php echo $proveedore['telefono']; ?></td>
-			<td><?php echo $proveedore['email']; ?></td>
-			<td><?php echo $proveedore['nombre_empresa']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'proveedores', 'action' => 'view', $proveedore['identificacion'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'proveedores', 'action' => 'edit', $proveedore['identificacion'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'proveedores', 'action' => 'delete', $proveedore['identificacion']), array('confirm' => __('Are you sure you want to delete # %s?', $proveedore['identificacion']))); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Proveedore'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
+
+</div>
+
+</div>
+
+

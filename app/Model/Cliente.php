@@ -73,8 +73,8 @@ class Cliente extends AppModel {
 		'Producto' => array(
 			'className' => 'Producto',
 			'joinTable' => 'clientes_productos',
-			'foreignKey' => 'cliente_id',
-			'associationForeignKey' => 'producto_id',
+			'foreignKey' => 'identificacion_id',
+			'associationForeignKey' => 'codigo_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
