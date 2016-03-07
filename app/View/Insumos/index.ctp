@@ -16,7 +16,7 @@
 <tr>
 	<td><?php echo h($insumo['Insumo']['nombre']); ?>&nbsp;</td>
 	<td> ₡ <?php echo h($insumo['Insumo']['precio']); ?>&nbsp;</td>
-	<td><?php echo h($insumo['Insumo']['image']); ?>&nbsp;</td>
+	<td><?php echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.'thumb_'.$insumo['Insumo']['image']);?></td>
 	<td class="actions">
 		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
