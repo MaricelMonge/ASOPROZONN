@@ -1,26 +1,27 @@
-<div class="clientes form">
-<?php echo $this->Form->create('Cliente'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+<?php echo $this->Form->create('Cliente', array('type'=>'file', 'novalidate'=>'novalidate')); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Cliente'); ?></legend>
+	<div class="page-header">
+		<h2><?php echo __('Editar Cliente'); ?></h2>
+	</div>
+
 	<?php
 		echo $this->Form->input('identificacion');
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('apellido1');
-		echo $this->Form->input('apellido2');
-		echo $this->Form->input('telefono');
-		echo $this->Form->input('email');
-		echo $this->Form->input('Producto');
-	?>
+		echo $this->Form->input('nombre', array('class'=>'form-control','label'=>'Nombre:'));
+		echo $this->Form->input('apellido1', array('class'=>'form-control','label'=>'Primer Apellido:'));
+		echo $this->Form->input('apellido2', array('class'=>'form-control','label'=>'Segundo Apellido:'));
+		echo $this->Form->input('telefono', array('class'=>'form-control','label'=>'Teléfonos:')); 
+		echo $this->Form->input('email', array('class'=>'form-control','label'=>'Correo Electrónico:'));
+		?>
+	
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+	<br>
+	<?php echo $this->Form->end(array('label'=>'Editar Cliente', 'class'=>'btn btn-success')); ?>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Cliente.identificacion')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Cliente.identificacion')))); ?></li>
-		<li><?php echo $this->Html->link(__('List Clientes'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
+
+	
+
+

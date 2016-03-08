@@ -1,24 +1,21 @@
-<div class="clientes form">
-<?php echo $this->Form->create('Cliente'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+<?php echo $this->Form->create('Cliente', array('type'=>'file', 'novalidate'=>'novalidate')); ?>
 	<fieldset>
-		<legend><?php echo __('Add Cliente'); ?></legend>
-	<?php
-		echo $this->Form->input('nombre');
-		echo $this->Form->input('apellido1');
-		echo $this->Form->input('apellido2');
-		echo $this->Form->input('telefono');
-		echo $this->Form->input('email');
-		echo $this->Form->input('Producto');
+	<div class="page-header">
+		<h2><?php echo __('Nuevo Cliente'); ?></h2>
+	</div>
+	<?php 
+	echo $this->Form->input('nombre', array('class'=>'form-control','label'=>'Nombre:'));
+	echo $this->Form->input('apellido1', array('class'=>'form-control','label'=>'Primer Apellido:'));
+	echo $this->Form->input('apellido2', array('class'=>'form-control','label'=>'Segundo Apellido:'));
+	echo $this->Form->input('telefono', array('class'=>'form-control','label'=>'Teléfonos:')); 
+	echo $this->Form->input('email', array('class'=>'form-control','label'=>'Correo Electrónico:'));
 	?>
+	<br>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(array('label'=>'Crear Cliente', 'class'=>'btn btn-success')); ?>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Clientes'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-	</ul>
+</div>
 </div>
