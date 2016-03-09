@@ -126,19 +126,6 @@ class Socio extends AppModel {
 			'offset' => '',
 			'finderQuery' => '',
 		),
-		'Proveedore' => array(
-			'className' => 'Proveedore',
-			'joinTable' => 'proveedores_socios',
-			'foreignKey' => 'numeroexp_id',
-			'associationForeignKey' => 'identificacion_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
 	);
 
 }

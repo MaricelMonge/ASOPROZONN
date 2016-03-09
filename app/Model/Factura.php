@@ -8,11 +8,11 @@ App::uses('AppModel', 'Model');
 class Factura extends AppModel {
 
 /**
- * Primary key field
+ * Display field
  *
  * @var string
  */
-	public $primaryKey = 'idventa';
+	public $displayField = 'id';
 
 /**
  * Validation rules
@@ -20,7 +20,7 @@ class Factura extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'idventa' => array(
+		'id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -30,7 +30,7 @@ class Factura extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'monto_total' => array(
+		'producto_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -40,9 +40,19 @@ class Factura extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'fecha' => array(
-			'date' => array(
-				'rule' => array('date'),
+		'cantidad' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'subtotal' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -55,24 +65,17 @@ class Factura extends AppModel {
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * hasAndBelongsToMany associations
+ * belongsTo associations
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
+	public $belongsTo = array(
 		'Producto' => array(
 			'className' => 'Producto',
-			'joinTable' => 'facturas_productos',
-			'foreignKey' => 'idventa_id',
-			'associationForeignKey' => 'codigo_id',
-			'unique' => 'keepExisting',
+			'foreignKey' => 'producto_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
+			'order' => ''
 		)
 	);
-
 }

@@ -3,9 +3,9 @@
 	<fieldset>
 		<legend><?php echo __('Add Factura'); ?></legend>
 	<?php
-		echo $this->Form->input('monto_total');
-		echo $this->Form->input('fecha');
-		echo $this->Form->input('Producto');
+		echo $this->Form->input('producto_id');
+		echo $this->Form->input('cantidad');
+		echo $this->Form->input('subtotal');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

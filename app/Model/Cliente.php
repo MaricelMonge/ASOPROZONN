@@ -69,20 +69,6 @@ class Cliente extends AppModel {
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
-		'Producto' => array(
-			'className' => 'Producto',
-			'joinTable' => 'clientes_productos',
-			'foreignKey' => 'identificacion_id',
-			'associationForeignKey' => 'codigo_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
-	);
+
 
 }

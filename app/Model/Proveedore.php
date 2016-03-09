@@ -84,19 +84,6 @@ class Proveedore extends AppModel {
 			'offset' => '',
 			'finderQuery' => '',
 		),
-		'Socio' => array(
-			'className' => 'Socio',
-			'joinTable' => 'proveedores_socios',
-			'foreignKey' => 'identificacion_id',
-			'associationForeignKey' => 'numeroexp_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		)
-	);
+);
 
 }

@@ -69,19 +69,6 @@ class Producto extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Cliente' => array(
-			'className' => 'Cliente',
-			'joinTable' => 'clientes_productos',
-			'foreignKey' => 'codigo_id',
-			'associationForeignKey' => 'identificacion_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		),
 		'Factura' => array(
 			'className' => 'Factura',
 			'joinTable' => 'facturas_productos',
@@ -109,5 +96,14 @@ class Producto extends AppModel {
 			'finderQuery' => '',
 		)
 	);
+	public $hasMany = array(
+	'Factura'=>array(
+		'className'=>'Factura',
+		'foreignKey'=>'producto_id',
+		'dependent'=>false
+		)
+		);
+	
+	
 
 }
