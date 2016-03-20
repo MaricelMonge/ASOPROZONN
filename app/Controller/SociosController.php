@@ -58,8 +58,7 @@ class SociosController extends AppController {
 			}
 		}
 		$productos = $this->Socio->Producto->find('list');
-		$proveedores = $this->Socio->Proveedore->find('list');
-		$this->set(compact('productos', 'proveedores'));
+		$this->set(compact('productos'));
 	}
 
 /**
@@ -85,8 +84,7 @@ class SociosController extends AppController {
 			$this->request->data = $this->Socio->find('first', $options);
 		}
 		$productos = $this->Socio->Producto->find('list');
-		$proveedores = $this->Socio->Proveedore->find('list');
-		$this->set(compact('productos', 'proveedores'));
+		$this->set(compact('productos'));
 	}
 
 /**

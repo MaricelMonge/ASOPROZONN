@@ -58,8 +58,7 @@ class ProveedoresController extends AppController {
 			}
 		}
 		$insumos = $this->Proveedore->Insumo->find('list');
-		$socios = $this->Proveedore->Socio->find('list');
-		$this->set(compact('insumos', 'socios'));
+		$this->set(compact('insumos'));
 	}
 
 /**
@@ -85,8 +84,7 @@ class ProveedoresController extends AppController {
 			$this->request->data = $this->Proveedore->find('first', $options);
 		}
 		$insumos = $this->Proveedore->Insumo->find('list');
-		$socios = $this->Proveedore->Socio->find('list');
-		$this->set(compact('insumos', 'socios'));
+		$this->set(compact('insumos'));
 	}
 
 /**

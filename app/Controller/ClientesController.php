@@ -57,8 +57,6 @@ class ClientesController extends AppController {
 				$this->Flash->error(__('The cliente could not be saved. Please, try again.'));
 			}
 		}
-		$productos = $this->Cliente->Producto->find('list');
-		$this->set(compact('productos'));
 	}
 
 /**
@@ -83,8 +81,6 @@ class ClientesController extends AppController {
 			$options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
 			$this->request->data = $this->Cliente->find('first', $options);
 		}
-		$productos = $this->Cliente->Producto->find('list');
-		$this->set(compact('productos'));
 	}
 
 /**

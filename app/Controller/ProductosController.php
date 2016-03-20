@@ -57,10 +57,9 @@ class ProductosController extends AppController {
 				$this->Flash->error(__('The producto could not be saved. Please, try again.'));
 			}
 		}
-		$clientes = $this->Producto->Cliente->find('list');
 		$facturas = $this->Producto->Factura->find('list');
 		$socios = $this->Producto->Socio->find('list');
-		$this->set(compact('clientes', 'facturas', 'socios'));
+		$this->set(compact('facturas', 'socios'));
 	}
 
 /**
@@ -85,10 +84,9 @@ class ProductosController extends AppController {
 			$options = array('conditions' => array('Producto.' . $this->Producto->primaryKey => $id));
 			$this->request->data = $this->Producto->find('first', $options);
 		}
-		$clientes = $this->Producto->Cliente->find('list');
 		$facturas = $this->Producto->Factura->find('list');
 		$socios = $this->Producto->Socio->find('list');
-		$this->set(compact('clientes', 'facturas', 'socios'));
+		$this->set(compact('facturas', 'socios'));
 	}
 
 /**
