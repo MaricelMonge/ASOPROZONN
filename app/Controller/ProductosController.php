@@ -15,7 +15,7 @@ class ProductosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('Session', 'RequestHandler', 'Paginator');
 
 /**
  * index method
@@ -57,9 +57,8 @@ class ProductosController extends AppController {
 				$this->Flash->error(__('The producto could not be saved. Please, try again.'));
 			}
 		}
-		$facturas = $this->Producto->Factura->find('list');
 		$socios = $this->Producto->Socio->find('list');
-		$this->set(compact('facturas', 'socios'));
+		$this->set(compact('socios'));
 	}
 
 /**
@@ -84,9 +83,8 @@ class ProductosController extends AppController {
 			$options = array('conditions' => array('Producto.' . $this->Producto->primaryKey => $id));
 			$this->request->data = $this->Producto->find('first', $options);
 		}
-		$facturas = $this->Producto->Factura->find('list');
 		$socios = $this->Producto->Socio->find('list');
-		$this->set(compact('facturas', 'socios'));
+		$this->set(compact('socios'));
 	}
 
 /**

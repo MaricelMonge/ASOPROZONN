@@ -1,30 +1,34 @@
-<div class="facturas index">
-	<h2><?php echo __('Facturas'); ?></h2>
+<div class="ventas index">
+	<h2><?php echo __('Ventas'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('producto_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('codigo_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('cantidad'); ?></th>
 			<th><?php echo $this->Paginator->sort('subtotal'); ?></th>
+			<th><?php echo $this->Paginator->sort('reserva'); ?></th>
+			<th><?php echo $this->Paginator->sort('pago'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
-	<?php foreach ($facturas as $factura): ?>
+	<?php foreach ($ventas as $venta): ?>
 	<tr>
-		<td><?php echo h($factura['Factura']['id']); ?>&nbsp;</td>
+		<td><?php echo h($venta['Venta']['id']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($factura['Producto']['codigo'], array('controller' => 'productos', 'action' => 'view', $factura['Producto']['codigo'])); ?>
+			<?php echo $this->Html->link($venta['Producto']['codigo'], array('controller' => 'productos', 'action' => 'view', $venta['Producto']['codigo'])); ?>
 		</td>
-		<td><?php echo h($factura['Factura']['cantidad']); ?>&nbsp;</td>
-		<td><?php echo h($factura['Factura']['subtotal']); ?>&nbsp;</td>
-		<td><?php echo h($factura['Factura']['created']); ?>&nbsp;</td>
+		<td><?php echo h($venta['Venta']['cantidad']); ?>&nbsp;</td>
+		<td><?php echo h($venta['Venta']['subtotal']); ?>&nbsp;</td>
+		<td><?php echo h($venta['Venta']['reserva']); ?>&nbsp;</td>
+		<td><?php echo h($venta['Venta']['pago']); ?>&nbsp;</td>
+		<td><?php echo h($venta['Venta']['created']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $factura['Factura']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $factura['Factura']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $factura['Factura']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $factura['Factura']['id']))); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $venta['Venta']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $venta['Venta']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $venta['Venta']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $venta['Venta']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -47,7 +51,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Factura'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Venta'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
 	</ul>

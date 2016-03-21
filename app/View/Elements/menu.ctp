@@ -8,7 +8,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">AGROPROZONN</a>
+         <?php echo $this->Html->link('AGROPROZONN', array('controller' => 'pages', 'action' => 'home'), array('class' => 'navbar-brand' )); ?>
+          
+        
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -56,10 +58,12 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Ventas <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><?php echo $this->Html->link('Lista de Facturas', array('controller'=>'facturas', 'action'=>'index'))?></li>
-                   <li><?php echo $this->Html->link('Nueva Venta', array('controller'=>'facturas', 'action'=>'add'))?></li>
+                  <li><?php echo $this->Html->link('Lista de Facturas', array('controller'=>'ventas', 'action'=>'index'))?></li>
+                   <li><?php echo $this->Html->link('Nueva Venta', array('controller'=>'ventas', 'action'=>'add'))?></li>
               </ul>
             </li>
+            
+            <?php echo $this->Html->link('Facturas', array('controller'=>'facturas', 'action'=>'view'), array('class'=>'btn btn-success navbar-btn'));?>
             
           
           </ul>

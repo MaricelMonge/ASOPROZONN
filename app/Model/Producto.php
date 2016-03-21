@@ -8,6 +8,9 @@ App::uses('AppModel', 'Model');
  * @property Socio $Socio
  */
 class Producto extends AppModel {
+	
+	public $components = array('Session', 'RequestHandler', 'Paginator', 'Flash');
+	public $helpers = array('Html', 'Form', 'Time');
 
 /**
  * Primary key field
@@ -69,19 +72,6 @@ class Producto extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Factura' => array(
-			'className' => 'Factura',
-			'joinTable' => 'facturas_productos',
-			'foreignKey' => 'codigo_id',
-			'associationForeignKey' => 'idventa_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		),
 		'Socio' => array(
 			'className' => 'Socio',
 			'joinTable' => 'productos_socios',
@@ -99,9 +89,16 @@ class Producto extends AppModel {
 	public $hasMany = array(
 	'Factura'=>array(
 		'className'=>'Factura',
-		'foreignKey'=>'producto_id',
+		'foreignKey'=>'codigo_id',
 		'dependent'=>false
-		)
+		), 
+		
+	'Venta'=>array(
+		'className'=>'Venta',
+		'foreignKey'=>'codigo_id',
+		'dependent'=>false
+		),	
+		
 		);
 	
 	

@@ -1,18 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Factura Model
+ * Venta Model
  *
- * @property Producto $Producto
+ * @property Codigo $Codigo
  */
-class Factura extends AppModel {
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'id';
+class Venta extends AppModel {
 
 /**
  * Validation rules
@@ -20,17 +13,7 @@ class Factura extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'producto_id' => array(
+		'codigo_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -51,8 +34,28 @@ class Factura extends AppModel {
 			),
 		),
 		'subtotal' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'reserva' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'pago' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -72,7 +75,10 @@ class Factura extends AppModel {
 	public $belongsTo = array(
 		'Producto' => array(
 			'className' => 'Producto',
-			'foreignKey' => 'codigo_id'
+			'foreignKey' => 'codigo_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 }

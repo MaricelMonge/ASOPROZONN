@@ -1,7 +1,9 @@
-<div class="page-header">
+
+
+	<?php echo $this->Html->script( array('addtocart.js'), array('inline' => false) ); ?>
 <h2>Producto: <?php echo $producto['Producto']['nombre']; ?></h2>
 
-</div>
+
 
 <div class="row">
 
@@ -46,7 +48,10 @@
 	Descripción: <?php echo $producto['Producto']['descripcion']; ?>
 	<br />
 	<br/>
-
+	<?php echo $this->Form->button('Agregar a factura', array('class' => 'btn btn-primary addtocart', 'id' => $producto['Producto']['codigo']) );?>
+	<br />
+	<br/>
+	
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 	    <?php echo __('Acciones'); ?> <span class="caret"></span>
@@ -57,9 +62,6 @@
 		<li><?php echo $this->Html->link(__('Lista de Productos'), array('action' => 'index')); ?> </li>
 	<li class="divider"></li>
 		<li><?php echo $this->Html->link(__('Lista de Socios'), array('controller' => 'socios', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista de Facturas'), array('controller' => 'facturas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista de Clientes'), array('controller' => 'clientes', 'action' => 'index')); ?> </li>
-		
 	</ul>
 	</div>
 </div>

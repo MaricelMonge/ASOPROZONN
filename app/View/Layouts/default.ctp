@@ -20,53 +20,46 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <!DOCTYPE html>
 <html>
 <head>
-<?php echo $this->Html->charset(); ?>
-<title>
-	<?php echo $cakeDescription?>:
-	<?php echo $this->fetch('title'); ?>
-</title>
-<?php
-	echo $this->Html->meta('icon');
+	<?php echo $this->Html->charset(); ?>
+	<?php echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, minimum-scale=1, maximum-scale=1')); ?>
 
-	echo $this->Html->css(array('style.css','bootstrap.min','bootstrap-theme.min','fileinput.min'));
-	echo $this->Html->script(array('jquery.min','doc.min','bootstrap.min', 'fileinput.min'));
-	echo $this->fetch('meta');
-	echo $this->fetch('css');
-	echo $this->fetch('script');
-?>
 
-<script type="text/javascript" src="">
-	$("#foto").fileinput();
-</script>
+
+	<title>
+		<?php echo $cakeDescription?>:
+		<?php echo $this->fetch('title'); ?>
+	</title>
+	<?php
+		echo $this->Html->meta('icon');
+
+		echo $this->Html->css(array('style.css','bootstrap.min','bootstrap-theme.min','fileinput.min', 'jquery-ui.min'));
+		echo $this->Html->script(array('jquery.min','bootstrap.min', 'fileinput.min', 'jquery-ui.min'));
+		echo $this->fetch('meta');
+		echo $this->fetch('css');	
+		echo $this->fetch('script');
+	?>
+
+	<script type="text/javascript" src="">
+		$("#foto").fileinput();
+
+		var basePath = "<?php echo Router::url('/'); ?>"
+
+	</script>
 </head>
 <body>
-<?php echo $this->element('menu');?>
+	<?php echo $this->element('menu');?>
 
-<div id="container">
-	<div id="header">
-		<h1></h1>
-	</div>
-</div>
- <div class="container theme-showcase" role="main">
-	
+
+	<div class="container" role="main">
+
    		<?php echo $this->Session->flash(); ?>
-
 		<?php echo $this->fetch('content'); ?>  
-
-  </div>
-
-<footer id="footer"><!--Footer-->
-	<div class="footer-bottom">
-		<div class="container">
-			<div class="row">
-			
-			</div>
-		</div>
-	</div>
 	
-</footer><!--/Footer-->
+		<br>
+		<div id="msg"></div>
+		<br>
 
-
+	</div>
 
 </body>
 </html>

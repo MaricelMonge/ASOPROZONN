@@ -15,16 +15,27 @@ class SociosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('RequestHandler','Session');
+	public $helpers=array('Html', 'Form', 'Time', 'Js');
 
 /**
  * index method
  *
  * @return void
  */
+ 
+ 	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Socio.numeroexp' => 'asc'
+        )
+    );
+ 
 	public function index() {
 		$this->Socio->recursive = 0;
-		$this->set('socios', $this->Paginator->paginate());
+		$this->paginate['Socio']['limit']=3;
+		$this->paginate['Socio']['order']=array('Socio.numeroexp'=>'asc');
+		$this->set('socios', $this->paginate());
 	}
 
 /**
