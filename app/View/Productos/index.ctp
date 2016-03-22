@@ -1,3 +1,4 @@
+<?php echo $this->Html->script(array('addtocart.js'), array ('inline'=>false));?>
 <div class="page-header">
 <h2><?php echo __('Productos'); ?></h2>
 </div>
@@ -5,7 +6,7 @@
 <table class="table table-striped">
 <thead>
 <tr>
-		<th><?php echo $this->Paginator->sort('Mombre'); ?></th>
+		<th><?php echo $this->Paginator->sort('Nombre'); ?></th>
 		<th><?php echo $this->Paginator->sort('Precio'); ?></th>
 		<th><?php echo $this->Paginator->sort('Imagen'); ?></th>
 		<th class="actions"><?php echo __('Actividad'); ?></th>
@@ -20,7 +21,7 @@
 
 	<td class="actions">
 		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $producto['Producto']['codigo']),  array('class'=>'btn btn-xs btn-success')); ?>
-		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $producto['Producto']['codigo']),  array('class'=>'btn btn-xs btn-success')); ?>
+		<?php echo $this->Form->button('Comprar', array('class' => 'btn btn-xs btn-primary addtocart', 'id' => $producto['Producto']['codigo']) );?>
 		<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $producto['Producto']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $producto['Producto']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
 	</td>
 </tr>

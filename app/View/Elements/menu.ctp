@@ -55,7 +55,7 @@
               </ul>
             </li>
             
-            <?php echo $this->Html->link('Pedidos', array('controller'=>'pedidos', 'action'=>'view'), array('class'=>'btn btn-success navbar-btn'));?>
+           <?php echo $this->Html->link('Pedidos', array('controller'=>'pedidos', 'action'=>'view'), array('class'=>'btn btn-success navbar-btn'));?>
             
           
           </ul>
