@@ -1,22 +1,18 @@
-<?php
-//debug($pedidos);
-?>
-
-
 <?php echo $this->Html->script(array('cart.js', 'jquery.animate-colors'), array('inline' => false)); ?>
-
 <?php echo $this->Form->create(NULL, array('url' => array('controller' => 'pedidos', 'action' => 'recalcular'))); ?>
+<div class="page-header">
+	
+	<h2>Pedidos</h2>
 
-<h1>Pedidos</h1>
+</div>
 
-<hr>
 <div class="row">
 	<div class="col col-sm-1">Foto</div>
 	<div class="col col-sm-7">Producto</div>
-	<div class="col col-sm-1">Precic</div>
+	<div class="col col-sm-1">Precio</div>
 	<div class="col col-sm-1">Cantidad</div>
 	<div class="col col-sm-1">Subtotal</div>
-	<div class="col col-sm-1">Eliminar</div>
+	<div class="col col-sm-1">Actividad</div>
 </div>
 
 <?php $tabindex = 1; ?>
@@ -27,7 +23,8 @@
 	    
 		<div class="col col-sm-1">
 			<figure>
-				<?php echo $this->Html->image('../files/producto/foto/' . $pedido['Producto']['foto_dir']. '/' . 'thumb_' . $pedido['Producto']['foto'], array('class' => 'img-pedidos')); ?>
+				<?php echo $this->Html->image('../files/producto/image/' . $pedido['Producto']['image_dir']. '/' . 'thumb_' . $pedido['Producto']['image'], array('class' => 'img-pedidos')); ?>
+				
 			</figure>
 		</div>
 
@@ -38,7 +35,7 @@
 		</div>
 
 		<div class="col col-sm-1" id="price-<?php echo $pedido['Pedido']['id']; ?>">
-			<?php echo $pedido['Producto']['precio']; ?>
+			₡<?php echo $pedido['Producto']['precio']; ?>
 		</div>
 
 		<div class="col col-sm-1">
@@ -46,13 +43,13 @@
 		</div>
 
 		<div class="col col-sm-1" style="background-color: none;" id="subtotal_<?php echo $pedido['Pedido']['id']; ?>">
-			<?php echo $pedido['Pedido']['subtotal']; ?>
+			₡<?php echo $pedido['Pedido']['subtotal']; ?>
 		</div>
 
 		<div class="col col-sm-1">
-			<?php
-			echo $this->Html->link('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>', '#', array('escapeTitle' => false, 'title' => 'Eliminar item', 'id' => $pedido['Pedido']['id'], 'class' => 'remove'));
-			?>
+		
+			<?php echo $this->Form->button('Eliminar', array('class' => 'btn btn-xs btn-danger remove', 'id' => $pedido['Pedido']['id']) );?>
+			
 		</div>
 	</div>
 	<br />
@@ -69,17 +66,17 @@
 		
 		&nbsp;&nbsp;
 
-		<?php echo $this->Form->button('Recalcular', array('class' => 'btn btn-default', 'escape' => false, 'name' => 'recalcular', 'value' => 'recalcular')); ?>
+		<?php echo $this->Form->button('Recalcular', array('class' => 'btn btn-success', 'escape' => false, 'name' => 'recalcular', 'value' => 'recalcular')); ?>
 
 		<br><br><br><br>
 		<span class="total">Total Orden:</span>
 		<span id="total" class="total">
-			$ <?php echo $total_pedidos; ?>
+			₡<?php echo $total_pedidos; ?>
 		</span>
 
 		<br><br>
 		
-		<?php echo $this->Form->button('<i class="glyphicon glyphicon-arrow-right"></i> Procesar Orden', array('class' => 'btn btn-primary', 'escape' =>false, 'name' => 'procesar', 'value' => 'procesar')); ?>
+		<?php echo $this->Form->button('Procesar Orden', array('class' => 'btn btn-primary', 'escape' =>false, 'name' => 'procesar', 'value' => 'procesar')); ?>
 
 		<?php echo $this->Form->end(); ?>
 
