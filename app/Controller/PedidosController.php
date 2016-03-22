@@ -158,7 +158,7 @@ public function view(){
         }
         elseif($this->request->data['procesar'] == 'procesar')
         {
-             return $this->redirect(array('controller' => 'ordens', 'action' => 'add'));  
+             return $this->redirect(array('controller' => 'ventas', 'action' => 'add'));  
         }
     }
 

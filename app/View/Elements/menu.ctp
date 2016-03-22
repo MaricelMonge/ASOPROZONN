@@ -55,6 +55,15 @@
               </ul>
             </li>
             
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Facturas <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><?php echo $this->Html->link('Lista de Facturas', array('controller'=>'ventas', 'action'=>'index'))?></li>
+              </ul>
+            </li>
+            
+            
+            
            <?php echo $this->Html->link('Pedidos', array('controller'=>'pedidos', 'action'=>'view'), array('class'=>'btn btn-success navbar-btn'));?>
             
           

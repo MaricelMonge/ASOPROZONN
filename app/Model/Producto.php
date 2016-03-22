@@ -84,17 +84,16 @@ class Producto extends AppModel {
 		)
 	);
 	public $hasMany = array(
-	'Factura'=>array(
-		'className'=>'Factura',
-		'foreignKey'=>'codigo_id',
-		'dependent'=>false
-		), 
-		
 	'Pedido'=>array(
 		'className'=>'Pedido',
 		'foreignKey'=>'producto_id',
 		'dependent'=>false
 		),	
+		'OrdenItem'=>array(
+		'className'=>'OrdenItem',
+		'foreignKey'=>'producto_id',
+		'dependent'=>false
+		),
 		
 		);
 	

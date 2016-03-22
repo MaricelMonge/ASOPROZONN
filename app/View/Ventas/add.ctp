@@ -1,23 +1,61 @@
-<div class="ventas form">
-<?php echo $this->Form->create('Venta'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Venta'); ?></legend>
-	<?php
-		echo $this->Form->input('codigo_id');
-		echo $this->Form->input('cantidad');
-		echo $this->Form->input('subtotal');
-		echo $this->Form->input('reserva');
-		echo $this->Form->input('pago');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Ventas'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+            <?php echo $this->Form->create('Ventas', array('role'=> 'form')); ?>
+			<fieldset>
+			    <div class="page-header">
+                    <h2><?php echo __('Facturación'); ?></h2>
+                </div>
+                <?php
+                    echo $this->Form->input('nombre', array('class' => 'form-control', 'label' => 'Nombre'));
+                ?>
+			</fieldset>
+			<h3>Productos: </h3>
+			<table class="table table-striped">
+			<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Precio</th>
+				<th>Cantidad</th>
+				<th>Subtotal</th>
+			</tr>
+			</thead>
+			<tbody>
+            <?php foreach($orden_item as $item): ?>
+			<tr>
+				<td><?php echo $item['Producto']['nombre']; ?></td>
+				<td>₡ <?php echo $item['Producto']['precio']; ?></td>
+				<td><?php echo $item['Pedido']['cantidad']; ?></td>
+			    <td>₡ <?php echo $item['Pedido']['subtotal']; ?></td>
+			</tr>
+            <?php endforeach; ?>
+			</tbody>
+			</table>
+			<p>
+				<span class="total">Total Venta:</span>
+				<span id="total" class="total">
+					₡ <?php echo $mostrar_total_pedidos; ?>
+				</span>
+				<br />
+				<br />
+				<span class="total">Reserva Asociación:</span>
+				<span id="total" class="total">
+					₡ <?php echo $mostrar_total_pedidos*0.15; ?>
+				</span>
+				<br />
+				<br />
+				<span class="total">Pago al productor:</span>
+				<span id="total" class="total">
+					₡ <?php echo $mostrar_total_pedidos*0.85; ?>
+				</span>
+				<br />
+				<br />
+                <?php echo $this->Form->input('total',array('type' => 'hidden', 'value' => $mostrar_total_pedidos)); ?>
+                <?php echo $this->Form->input('pago',array('type' => 'hidden', 'value' => $mostrar_total_pedidos*0.85)); ?>
+                <?php echo $this->Form->input('reserva',array('type' => 'hidden', 'value' => $mostrar_total_pedidos*0.15)); ?>
+                <?php echo $this->Form->end(array('label' => 'Facturar', 'class' => 'btn btn-primary')); ?>
+				
+			</p>
+		</div>
+	</div>
 </div>

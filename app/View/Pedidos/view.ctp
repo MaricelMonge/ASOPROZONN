@@ -50,7 +50,7 @@
 		
 		&nbsp;&nbsp;
 
-		<?php echo $this->Form->button('Recalcular', array('class' => 'btn btn-success', 'escape' => false, 'name' => 'recalcular', 'value' => 'recalcular')); ?>
+		<?php echo $this->Form->button('Actualizar', array('class' => 'btn btn-success', 'escape' => false, 'name' => 'recalcular', 'value' => 'recalcular')); ?>
 
 		<br><br><br><br>
 		<span class="total">Total Orden:</span>

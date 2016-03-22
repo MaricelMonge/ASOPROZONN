@@ -69,6 +69,6 @@ class Cliente extends AppModel {
  *
  * @var array
  */
-
+	
 
 }

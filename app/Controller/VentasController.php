@@ -1,100 +1,78 @@
 <?php
-App::uses('AppController', 'Controller');
-/**
- * Ventas Controller
- *
- * @property Venta $Venta
- * @property PaginatorComponent $Paginator
- * @property FlashComponent $Flash
- * @property SessionComponent $Session
- */
 class VentasController extends AppController {
-
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator', 'Flash', 'Session');
-
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Venta->recursive = 0;
-		$this->set('ventas', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Venta->exists($id)) {
-			throw new NotFoundException(__('Invalid venta'));
-		}
-		$options = array('conditions' => array('Venta.' . $this->Venta->primaryKey => $id));
-		$this->set('venta', $this->Venta->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+    
+    public $components = array('Session','RequestHandler');
+	public $helpers=array('Html', 'Form', 'Time', 'Js');
 	
+	 public $paginate = array(
+            'limit' => 3,
+            'order' => array(
+                'Venta.id' => 'desc'
+            )
+        );
+	
+	
+	public function index(){
+	    $this->Venta->recursive = 0;
+        
+        $this->paginate['Venta']['limit'] = 3;
+        $this->paginate['Venta']['order'] = array('Venta.id' => 'desc');
+        $this->set('ventas', $this->paginate());
+	    
 	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Venta->exists($id)) {
-			throw new NotFoundException(__('Invalid venta'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Venta->save($this->request->data)) {
-				$this->Flash->success(__('The venta has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->error(__('The venta could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Venta.' . $this->Venta->primaryKey => $id));
-			$this->request->data = $this->Venta->find('first', $options);
-		}
-		$codigos = $this->Venta->Producto->find('list');
-		$this->set(compact('codigos'));
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Venta->id = $id;
-		if (!$this->Venta->exists()) {
-			throw new NotFoundException(__('Invalid venta'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Venta->delete()) {
-			$this->Flash->success(__('The venta has been deleted.'));
-		} else {
-			$this->Flash->error(__('The venta could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
+	
+    public function add(){
+        $this->loadModel('Pedido','RequestHandler');
+        
+         $orden_item = $this->Pedido->find('all', array('order' => 'Pedido.id ASC'));
+        
+        //debug($orden_item);
+        
+        if(count($orden_item) > 0)
+        {
+            $total_pedidos = $this->Pedido->find('all', array('fields' => array('SUM(Pedido.subtotal) as subtotal')));
+            $mostrar_total_pedidos = $total_pedidos[0][0]['subtotal'];
+            
+            $this->set(compact('orden_item', 'mostrar_total_pedidos'));
+        }
+        else
+        {
+            $this->Session->setFlash('Ninguna venta ha sido procesada', 'default', array('class' => 'alert alert-danger'));
+            return $this->redirect(array('controller' => 'productos', 'action' => 'index'));
+        }
+        
+    
+         if($this->request->is('post'))
+        {
+            $this->Venta->create();
+            if($this->Venta->save($this->request->data))
+            {
+                $id_venta = $this->Venta->id;
+                
+                for($i = 0; $i < count($orden_item); $i++)
+                {
+                    $producto_id = $orden_item[$i]['Pedido']['producto_id'];
+                    $cantidad = $orden_item[$i]['Pedido']['cantidad'];
+                    $subtotal = $orden_item[$i]['Pedido']['subtotal'];
+                    
+                    $orden_items = array('producto_id' => $producto_id, 'venta_id' => $id_venta, 'cantidad' => $cantidad, 'subtotal' => $subtotal);
+                    $this->Venta->OrdenItem->saveAll($orden_items);
+                }
+                
+                //Eliminando el contenido de la tabla pedidos
+                $this->Pedido->deleteAll(1, false);
+                
+                $this->Session->setFlash('El pedido fue procesado con éxito', 'default', array('class' => 'alert alert-success'));
+                return $this->redirect(array('controller' => 'productos', 'action' => 'index'));
+            }
+            else
+            {
+                $this->Session->setFlash('El pedido no pudo ser procesado.'. 'default', array('class' => 'alert alert-danger'));
+            } 
+        }
+        
+    }
+    
 }
+
+?>
