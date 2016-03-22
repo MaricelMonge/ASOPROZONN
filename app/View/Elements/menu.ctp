@@ -63,7 +63,7 @@
               </ul>
             </li>
             
-            <?php echo $this->Html->link('Facturas', array('controller'=>'facturas', 'action'=>'view'), array('class'=>'btn btn-success navbar-btn'));?>
+            <?php echo $this->Html->link('Pedidos', array('controller'=>'pedido', 'action'=>'view'), array('class'=>'btn btn-success navbar-btn'));?>
             
           
           </ul>

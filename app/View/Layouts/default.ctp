@@ -39,12 +39,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->fetch('script');
 	?>
 
-	<script type="text/javascript" src="">
+	<script type="text/javascript">
 		$("#foto").fileinput();
-
 		var basePath = "<?php echo Router::url('/'); ?>"
-
 	</script>
+	
+	
 </head>
 <body>
 	<?php echo $this->element('menu');?>

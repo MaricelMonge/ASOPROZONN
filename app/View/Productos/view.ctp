@@ -1,9 +1,9 @@
+<?php echo $this->Html->script(array('addtocart.js'), array ('inline'=>false));?>
+<div class="page-header">
+	
+	<h2>Producto: <?php echo $producto['Producto']['nombre']; ?></h2>
 
-
-	<?php echo $this->Html->script( array('addtocart.js'), array('inline' => false) ); ?>
-<h2>Producto: <?php echo $producto['Producto']['nombre']; ?></h2>
-
-
+</div>
 
 <div class="row">
 
@@ -48,7 +48,8 @@
 	Descripción: <?php echo $producto['Producto']['descripcion']; ?>
 	<br />
 	<br/>
-	<?php echo $this->Form->button('Agregar a factura', array('class' => 'btn btn-primary addtocart', 'id' => $producto['Producto']['codigo']) );?>
+	<?php echo $this->Form->button('Agregar a pedido', array('class' => 'btn btn-primary addtocart', 'id' => $producto['Producto']['codigo']) );?>
+	
 	<br />
 	<br/>
 	

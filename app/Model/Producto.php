@@ -9,9 +9,6 @@ App::uses('AppModel', 'Model');
  */
 class Producto extends AppModel {
 	
-	public $components = array('Session', 'RequestHandler', 'Paginator', 'Flash');
-	public $helpers = array('Html', 'Form', 'Time');
-
 /**
  * Primary key field
  *
@@ -93,9 +90,9 @@ class Producto extends AppModel {
 		'dependent'=>false
 		), 
 		
-	'Venta'=>array(
-		'className'=>'Venta',
-		'foreignKey'=>'codigo_id',
+	'Pedido'=>array(
+		'className'=>'Pedido',
+		'foreignKey'=>'producto_id',
 		'dependent'=>false
 		),	
 		
