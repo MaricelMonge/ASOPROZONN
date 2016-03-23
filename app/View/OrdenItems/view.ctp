@@ -6,17 +6,10 @@
    ));
 ?>
 
-<?php if(empty($ventas)): ?>
-
-<h2>No existen facturas disponibles</h2>
-
-<?php else: ?>
-
 <div id="contenedor-ordens">
 
 <div class="page-header">
-
-	<h2><?php echo __('Facturas'); ?></h2>
+	<h2>Detalles de factura</h2>
 
 </div>
 
@@ -32,36 +25,22 @@
 		<table class="table table-striped">
 		<thead>
 		<tr>
-				<th><?php echo $this->Paginator->sort('Número Factura'); ?></th>
-				<th><?php echo $this->Paginator->sort('Cliente'); ?></th>
-				<th><?php echo $this->Paginator->sort('Total'); ?> </th>
-				<th><?php echo $this->Paginator->sort('Reserva'); ?> </th>
-				<th><?php echo $this->Paginator->sort('Pago al productor'); ?> </th>
-				<th><?php echo $this->Paginator->sort('Fecha'); ?></th>
-				<th class="actions"><?php echo __('Acciones'); ?></th>
+				<th><?php echo $this->Paginator->sort('Producto'); ?></th>
+				<th><?php echo $this->Paginator->sort('Cantidad'); ?></th>
+				<th><?php echo $this->Paginator->sort('Subtotal'); ?> </th>
 		</tr>
 		</thead>
 		<tbody>
-
-        <?php foreach($ventas as $orden): ?>
-		
+        <?php foreach($ordenitems as $ordenitem): ?>
 		<tr>
-			<td><?php echo h($orden['Venta']['id']); ?></td>
-			<td><?php echo h($orden['Venta']['nombre']); ?></td>
-			<td>₡<?php echo h($orden['Venta']['total']); ?></td>
-			<td>₡<?php echo h($orden['Venta']['reserva']); ?></td>
-			<td>₡<?php echo h($orden['Venta']['pago']); ?></td>
-			<td><?php echo $this->Time->format('d-m-Y h:i A', h($orden['Venta']['created'])); ?></td>
-			<td class="actions">
-				<?php 
-				    echo $this->Html->link('Detalles', array('controller' => 'orden_items', 'action' => 'view', $orden['Venta']['id']), array('class' => 'btn btn-success'));
-				?>
-			</td>
+			<td><?php echo h($ordenitem['Producto']['nombre']); ?></td>
+			<td><?php echo h($ordenitem['OrdenItem']['cantidad']); ?></td>
+			<td>₡<?php echo h($ordenitem['OrdenItem']['subtotal']); ?></td>
 		</tr>
         <?php endforeach; ?>
-		
 		</tbody>
 		</table>
+
 	</div>
 
 		<p>
@@ -77,5 +56,3 @@
 		</ul>
 	<?php echo $this->Js->writeBuffer(); ?>
 </div> <!-- contenedor-ordens -->
-
-<?php endif; ?>
