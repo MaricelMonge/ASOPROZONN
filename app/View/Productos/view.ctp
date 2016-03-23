@@ -14,20 +14,20 @@
 		<div class="related">
 			<h3><?php echo __('Socios'); ?></h3>
 				<?php if (!empty($producto['Socio'])): ?>
-			<table class="table table-bordered">
+			<table class="table table-striped">
 				<tr>
-					<th><?php echo __('N. Expediente'); ?></th>
 					<th><?php echo __('Nombre'); ?></th>
 					<th><?php echo __('Apellido'); ?></th>
+					<th><?php echo __('Teléfono'); ?></th>
 					<th class="actions"><?php echo __('Acciones'); ?></th>
 				</tr>
 				<?php foreach ($producto['Socio'] as $socio): ?>
 				<tr>
-					<td><?php echo $socio['numeroexp']; ?></td>
 					<td><?php echo $socio['nombre']; ?></td>
 					<td><?php echo $socio['apellido1']; ?></td>
+					<td><?php echo $socio['telefono']; ?></td>
 					<td class="actions">
-					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'socios', 'action' => 'view', $socio['numeroexp']), array('class'=>'btn btn-xs btn-success')); ?>
+					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'socios', 'action' => 'view', $socio['numeroexp']), array('class'=>'btn btn-xs btn-primary')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
@@ -48,7 +48,7 @@
 	Descripción: <?php echo $producto['Producto']['descripcion']; ?>
 	<br />
 	<br/>
-	<?php echo $this->Form->button('Agregar a pedido', array('class' => 'btn btn-primary addtocart', 'id' => $producto['Producto']['codigo']) );?>
+	<?php echo $this->Form->button('Agregar a pedido', array('class' => 'btn btn-success addtocart', 'id' => $producto['Producto']['codigo']) );?>
 	
 	<br />
 	<br/>

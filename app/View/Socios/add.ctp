@@ -26,8 +26,8 @@
 	echo $this->Form->input('actividad_extra', array('class'=>'form-control','label'=>'Actividad extra:'));
 	echo $this->Form->input('image', array('type'=>'file','label'=>'Foto: ', 'id'=>'foto', 'class'=>'file', 'data-show-upload'=>'false','data-show-caption'=>'true', 'default'=>'icono.jpg'));
 	echo $this->Form->input('image_dir',array('type'=>'hidden'));?>
-	<?php echo $this->Form->input('Producto',array('class'=>'form-control', 'label'=>'Productos: '));
-	?>
+	<?php echo $this->Form->input('Producto',array('class'=>'form-control', 'label'=>'Productos: '));	?>
+
 	<br>
 	</fieldset>
 <?php echo $this->Form->end(array('label'=>'Crear Socio', 'class'=>'btn btn-success')); ?>

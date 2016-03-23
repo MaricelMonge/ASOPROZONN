@@ -13,7 +13,7 @@
 		<div class="related">
 			<h3><?php echo __('Productos'); ?></h3>
 				<?php if (!empty($socio['Producto'])): ?>
-			<table class="table table-bordered">
+			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Código'); ?></th>
 					<th><?php echo __('Nombre'); ?></th>
@@ -26,7 +26,7 @@
 					<td><?php echo $producto['nombre']; ?></td>
 					<td>₡<?php echo $producto['precio']; ?></td>
 					<td class="actions">
-					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'productos', 'action' => 'view', $producto['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
+					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'productos', 'action' => 'view', $producto['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

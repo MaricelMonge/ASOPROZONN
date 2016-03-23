@@ -15,17 +15,29 @@ class ProductosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Session', 'RequestHandler', 'Paginator');
-
-/**
+	public $components = array('Session', 'RequestHandler');
+	public $helpers=array('Html', 'Form', 'Time', 'Js');
+	
+		public $paginate = array(
+        	'limit' => 3,
+        	'order' => array(
+            'Producto.codigo' => 'asc'
+        )
+    );
+ 
+ /**
  * index method
  *
  * @return void
  */
 	public function index() {
 		$this->Producto->recursive = 0;
-		$this->set('productos', $this->Paginator->paginate());
+		$this->paginate['Producto']['limit']=3;
+		$this->paginate['Producto']['order']=array('Producto.codigo'=>'asc');
+		$this->set('productos', $this->paginate());
 	}
+
+
 
 /**
  * view method

@@ -59,6 +59,7 @@ class SociosController extends AppController {
  * @return void
  */
 	public function add() {
+		$this->loadModel('Producto','RequestHandler');
 		if ($this->request->is('post')) {
 			$this->Socio->create();
 			if ($this->Socio->save($this->request->data)) {
