@@ -24,9 +24,9 @@
 				<tr>
 					<td><?php echo $producto['codigo']; ?></td>
 					<td><?php echo $producto['nombre']; ?></td>
-					<td><?php echo $producto['precio']; ?></td>
+					<td>₡<?php echo $producto['precio']; ?></td>
 					<td class="actions">
-					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'productos', 'action' => 'view', $producto['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
+					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'productos', 'action' => 'view', $producto['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

@@ -41,7 +41,7 @@ $this->Paginator->options(array('update'=>'#contenedor-socios',
 	<td><?php echo $this->Html->image('../files/socio/image/' . $socio['Socio']['image_dir'].'/'.'thumb_'.$socio['Socio']['image']);?></td>
 	
 	<td class="actions">
-		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $socio['Socio']['numeroexp']), array('class'=>'btn btn-xs btn-success')); ?>
+		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $socio['Socio']['numeroexp']), array('class'=>'btn btn-xs btn-primary')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $socio['Socio']['numeroexp']), array('class'=>'btn btn-xs btn-success')); ?>
 		<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $socio['Socio']['numeroexp']), array('confirm' => __('Esta seguro de eliminar a # %s?', $socio['Socio']['numeroexp']),'class'=>'btn btn-xs btn-danger')); ?>
 	</td>
@@ -60,8 +60,7 @@ echo $this->Paginator->counter(array(
 ?>	</p>
 <div align=center class="paging">
 <?php
-	echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'btn btn-xs btn-info'));
-	echo $this->Paginator->numbers(array('separator' => ''));
+	echo $this->Paginator->prev('< '.__('Anterior'), array(), null, array('class' => 'btn btn-xs btn-info'));
 	echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'btn btn-xs btn-info'));
 ?>
 
