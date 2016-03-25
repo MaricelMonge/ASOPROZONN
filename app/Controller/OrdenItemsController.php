@@ -5,7 +5,7 @@ class OrdenItemsController extends AppController {
     public $helpers = array('Html', 'Form', 'Time', 'Js');
     
     public $paginate = array(
-            'limit' => 3,
+            'limit' => 7,
             'order' => array(
                 'OrdenItem.id' => 'asc'
             )
@@ -19,7 +19,7 @@ class OrdenItemsController extends AppController {
             throw new NotFoundException('Factura invalida');
         }
         
-        $this->paginate['OrdenItem']['limit'] = 3;
+        $this->paginate['OrdenItem']['limit'] = 7;
         $this->paginate['OrdenItem']['conditions'] = array('OrdenItem.venta_id' => $id);
         $this->paginate['OrdenItem']['order'] = array('OrdenItem.id' => 'asc');
         $this->set('ordenitems', $this->paginate());

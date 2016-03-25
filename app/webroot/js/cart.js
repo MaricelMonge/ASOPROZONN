@@ -44,7 +44,7 @@ $(document).ready(function(){
             },
             dataType: "json",
             success: function(data){
-                $('#msg').html('<div class="alert alert-success flash-msg">Producto eliminado.</div>');
+                $('#msg').html('<div class="alert alert-danger flash-msg">Producto eliminado.</div>');
                 $('.flash-msg').delay(2000).fadeOut('slow');
                 
                 $('#total').html('$' + data.mostrar_total_remove).animate({backgroundColor: "#ff8"}, 100).animate({backgroundColor: "#fff"}, 500);

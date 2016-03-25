@@ -49,8 +49,8 @@
 		<?php echo $this->Html->link('Quitar pedidos', array('controller' => 'pedidos', 'action' => 'quitar'), array('class' => 'btn btn-danger', 'confirm' => 'Está seguro de quitar todos los pedidos?')); ?>
 		
 		&nbsp;&nbsp;
-
-		<?php echo $this->Form->button('Actualizar', array('class' => 'btn btn-success', 'escape' => false, 'name' => 'recalcular', 'value' => 'recalcular')); ?>
+		
+			<?php echo $this->Html->link('Actualizar', array('controller' => 'pedidos', 'action' => 'view'), array('class' => 'btn btn-success')); ?>
 
 		<br><br><br><br>
 		<span class="total">Total Orden:</span>

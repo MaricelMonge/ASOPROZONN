@@ -139,11 +139,15 @@ public function view(){
                 
                 $precio_update = $this->Pedido->find('all', array('fields' => array('Pedido.id', 'Producto.precio'), 'conditions' => array('Pedido.id' => $key)));
                 
+                
+                $producto_id=$this->Pedido->find('all', array('fields'=>array('Producto.codigo'), 'conditions'=>array('Pedido.id'=>$key)));
+                
                 $precio_update_mostrar = $precio_update[0]['Producto']['precio'];
+                
                 
                 $subtotal_update = $entero * $precio_update_mostrar;
                 
-                $pedido_update = array('id' => $key, 'cantidad' => $entero, 'subtotal' => $subtotal_update);
+                $pedido_update = array('id' => $key, 'Producto.codigo'=>$producto_id,'cantidad' => $entero, 'subtotal' => $subtotal_update);
                 $this->Pedido->saveAll($pedido_update);
             }
         }
