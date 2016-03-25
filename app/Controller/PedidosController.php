@@ -108,14 +108,14 @@ public function view(){
     {
         if($this->Pedido->deleteAll(1, false))
         {
-            $this->Session->setFlash('Todos los pedidos han sido quitados', 'default', array('class' => 'alert alert-success'));
+            $this->Session->setFlash('Todos los productos se quitaron', 'default', array('class' => 'alert alert-success'));
         }
         else
         {
-            $this->Session->setFlash('No se pudo quitar los pedidos', 'default', array('class' => 'alert alert-danger'));
+            $this->Session->setFlash('No se pudo quitar los productos', 'default', array('class' => 'alert alert-danger'));
         }
         
-        return $this->redirect(array('controller' => 'platillos', 'action' => 'index'));
+        return $this->redirect(array('controller' => 'productos', 'action' => 'index'));
     }
     
     public function recalcular()
@@ -152,7 +152,7 @@ public function view(){
         
         if($this->request->data['recalcular'] == 'recalcular')
         {
-            $this->Session->setFlash('Todos los pedidos fueron actualizados correctamente', 'default', array('class' => 'alert alert-success'));
+            $this->Session->setFlash('Todos los productos fueron actualizados correctamente', 'default', array('class' => 'alert alert-success'));
                     
             return $this->redirect(array('controller' => 'pedidos', 'action' => 'view'));            
         }

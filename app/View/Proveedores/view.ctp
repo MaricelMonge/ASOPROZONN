@@ -29,7 +29,7 @@
 		<div class="related">
 			<h3><?php echo __('Insumos'); ?></h3>
 				<?php if (!empty($proveedore['Insumo'])): ?>
-			<table class="table table-bordered">
+			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Código'); ?></th>
 					<th><?php echo __('Nombre'); ?></th>
@@ -42,7 +42,7 @@
 					<td><?php echo $insumo['nombre']; ?></td>
 					<td><?php echo $insumo['precio']; ?></td>
 					<td class="actions">
-					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'insumos', 'action' => 'view', $insumo['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
+					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'insumos', 'action' => 'view', $insumo['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

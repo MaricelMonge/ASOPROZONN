@@ -15,17 +15,31 @@ class InsumosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+		public $components = array('RequestHandler','Session');
+		public $helpers=array('Html', 'Form', 'Time', 'Js');
 
 /**
  * index method
  *
  * @return void
  */
+
+
+	  public $paginate = array(
+        'limit' => 3,
+        'order' => array(
+            'Insumo.codigo' => 'asc'
+        )
+    );
+ 
 	public function index() {
 		$this->Insumo->recursive = 0;
-		$this->set('insumos', $this->Paginator->paginate());
+		$this->paginate['Insumo']['limit']=3;
+		$this->paginate['Insumo']['order']=array('Insumo.codigo'=>'asc');
+		$this->set('insumos', $this->paginate());
 	}
+
+
 
 /**
  * view method

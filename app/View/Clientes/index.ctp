@@ -20,7 +20,7 @@
 	<td><?php echo h($cliente['Cliente']['apellido2']); ?>&nbsp;</td>
 	<td><?php echo h($cliente['Cliente']['telefono']); ?>&nbsp;</td>
 	<td class="actions">
-		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $cliente['Cliente']['identificacion']),  array('class'=>'btn btn-xs btn-success')); ?>
+		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $cliente['Cliente']['identificacion']),  array('class'=>'btn btn-xs btn-primary')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $cliente['Cliente']['identificacion']),  array('class'=>'btn btn-xs btn-success')); ?>
 		<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $cliente['Cliente']['identificacion']), array('class'=>'btn btn-xs btn-danger', 'confirm' => __('Esta seguro de eliminar a # %s?', $cliente['Cliente']['identificacion']))); ?>
 	</td>
@@ -37,7 +37,6 @@ echo $this->Paginator->counter(array(
 <div class="paging" align=center>
 <?php
 	echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'btn btn-xs btn-info'));
-	echo $this->Paginator->numbers(array('separator' => ''));
 	echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'btn btn-xs btn-info'));
 ?>
 </div>

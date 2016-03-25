@@ -15,17 +15,23 @@ class ProveedoresController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
-
-/**
- * index method
- *
- * @return void
- */
+ 	public $components = array('RequestHandler','Session');
+	public $helpers=array('Html', 'Form', 'Time', 'Js');
+ 
+ 	  public $paginate = array(
+        'limit' => 7,
+        'order' => array(
+            'Proveedore.identificacion' => 'asc'
+        )
+    );
+ 
 	public function index() {
 		$this->Proveedore->recursive = 0;
-		$this->set('proveedores', $this->Paginator->paginate());
+		$this->paginate['Proveedore']['limit']=7;
+		$this->paginate['Proveedore']['order']=array('Proveedore.identificacion'=>'asc');
+		$this->set('proveedores', $this->paginate());
 	}
+
 
 /**
  * view method

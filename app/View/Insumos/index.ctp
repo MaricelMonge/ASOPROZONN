@@ -18,7 +18,7 @@
 	<td> ₡ <?php echo h($insumo['Insumo']['precio']); ?>&nbsp;</td>
 	<td><?php echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.'thumb_'.$insumo['Insumo']['image']);?></td>
 	<td class="actions">
-		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
+		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
 		<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $insumo['Insumo']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $insumo['Insumo']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
 	</td>
@@ -35,7 +35,6 @@ echo $this->Paginator->counter(array(
 <div class="paging" align=center>
 <?php
 	echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'btn btn-xs btn-info'));
-	echo $this->Paginator->numbers(array('separator' => ''));
 	echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'btn btn-xs btn-info'));
 ?>
 </div>

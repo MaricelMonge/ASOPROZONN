@@ -10,11 +10,11 @@ $(document).ready(function(){
             },
             dataType: "html",
             success: function(data) {
-                $('#msg').html('<div class="alert alert-success flash-msg">Platillo agregado al pedido.</div>');
+                $('#msg').html('<div class="alert alert-success flash-msg">Producto agregado.</div>');
                 $('.flash-msg').delay(2000).fadeOut('slow');
             },
             error: function(){
-                alert('Tenemos problemas!!!');
+                alert('No se pudo agregar el producto');
             }
         });
         return false;

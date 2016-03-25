@@ -10,7 +10,7 @@
 		<div class="related">
 			<h3><?php echo __('Proveedores'); ?></h3>
 				<?php if (!empty($insumo['Proveedore'])): ?>
-			<table class="table table-bordered">
+			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Nombre'); ?></th>
 					<th><?php echo __('Apellido'); ?></th>
@@ -23,7 +23,7 @@
 					<td><?php echo $proveedore['apellido1']; ?></td>
 					<td><?php echo $proveedore['telefono']; ?></td>
 					<td class="actions">
-					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'proveedores', 'action' => 'view', $proveedore['identificacion']), array('class'=>'btn btn-xs btn-success')); ?>
+					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'proveedores', 'action' => 'view', $proveedore['identificacion']), array('class'=>'btn btn-xs btn-primary')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>

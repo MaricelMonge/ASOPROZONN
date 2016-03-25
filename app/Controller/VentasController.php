@@ -5,7 +5,7 @@ class VentasController extends AppController {
 	public $helpers=array('Html', 'Form', 'Time', 'Js');
 	
 	 public $paginate = array(
-            'limit' => 3,
+            'limit' => 7,
             'order' => array(
                 'Venta.id' => 'desc'
             )
@@ -15,7 +15,7 @@ class VentasController extends AppController {
 	public function index(){
 	    $this->Venta->recursive = 0;
         
-        $this->paginate['Venta']['limit'] = 3;
+        $this->paginate['Venta']['limit'] = 7;
         $this->paginate['Venta']['order'] = array('Venta.id' => 'desc');
         $this->set('ventas', $this->paginate());
 	    
