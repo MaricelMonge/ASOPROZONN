@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         <?php echo $this->Html->link('AGROPROZONN', array('controller' => 'pages', 'action' => 'home'), array('class' => 'navbar-brand' )); ?>
+         <?php echo $this->Html->link('ASOPROZOONN', array('controller' => 'pages', 'action' => 'home'), array('class' => 'navbar-brand' )); ?>
           
         
         </div>

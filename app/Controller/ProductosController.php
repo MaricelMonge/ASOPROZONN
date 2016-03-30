@@ -21,7 +21,7 @@ class ProductosController extends AppController {
 		public $paginate = array(
         	'limit' => 3,
         	'order' => array(
-            'Producto.codigo' => 'asc'
+            'Producto.codigo' => 'desc'
         )
     );
  
@@ -33,7 +33,7 @@ class ProductosController extends AppController {
 	public function index() {
 		$this->Producto->recursive = 0;
 		$this->paginate['Producto']['limit']=3;
-		$this->paginate['Producto']['order']=array('Producto.codigo'=>'asc');
+		$this->paginate['Producto']['order']=array('Producto.codigo'=>'desc');
 		$this->set('productos', $this->paginate());
 	}
 
