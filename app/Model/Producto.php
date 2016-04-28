@@ -15,6 +15,7 @@ class Producto extends AppModel {
  * @var string
  */
 	public $primaryKey = 'codigo';
+	public $displayField = 'nombre';
 	
 		public $actsAs = array(
 		'Upload.Upload'=>array(
