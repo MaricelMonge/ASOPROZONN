@@ -8,13 +8,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-         <?php echo $this->Html->link('ASOPROZOONN', array('controller' => 'pages', 'action' => 'home'), array('class' => 'navbar-brand' )); ?>
+         <!--<?php echo $this->Html->link('ASOPROZONN', array('controller' => 'pages', 'action' => 'home'), array('class' => 'navbar-brand' )); ?>-->
           
         
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            
+            <li class="dropdown">
+                  <?php echo $this->Html->link('ASOPROZONN', array('controller'=>'pages', 'action'=>'home'))?>
+            </li>
            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Socios <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -38,15 +40,6 @@
                    <li><?php echo $this->Html->link('Nuevo Proveedor', array('controller'=>'proveedores', 'action'=>'add'))?></li>
               </ul>
             </li>
-            
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Insumos <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  <li><?php echo $this->Html->link('Lista de Insumos', array('controller'=>'insumos', 'action'=>'index'))?></li>
-                   <li><?php echo $this->Html->link('Nuevo Insummo', array('controller'=>'insumos', 'action'=>'add'))?></li>
-              </ul>
-            </li>
-            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Clientes <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -60,6 +53,9 @@
               <ul class="dropdown-menu">
                   <li><?php echo $this->Html->link('Lista de Facturas', array('controller'=>'ventas', 'action'=>'index'))?></li>
               </ul>
+            </li>
+            <li class="dropdown">
+                  <?php echo $this->Html->link('Sobre Nosotros', array('controller'=>'pages', 'action'=>'aboutus'))?>
             </li>
             
             

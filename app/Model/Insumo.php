@@ -13,6 +13,7 @@ class Insumo extends AppModel {
  * @var string
  */
 	public $primaryKey = 'codigo';
+	public $displayField = 'nombre';
 	
 	
 		public $actsAs = array(
