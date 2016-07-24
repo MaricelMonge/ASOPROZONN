@@ -54,12 +54,16 @@
                    <li><?php echo $this->Html->link('Nuevo Cliente', array('controller'=>'clientes', 'action'=>'add'))?></li>
               </ul>
             </li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Pagos <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><?php echo $this->Html->link('Lista de Pagos', array('controller'=>'pagos', 'action'=>'index'))?></li>
+                   <li><?php echo $this->Html->link('Nuevo Pago', array('controller'=>'pagos', 'action'=>'add'))?></li>
+              </ul>
+            </li>
             
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Facturas <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  <li><?php echo $this->Html->link('Lista de Facturas', array('controller'=>'ventas', 'action'=>'index'))?></li>
-              </ul>
+                  <?php echo $this->Html->link('Facturas', array('controller'=>'ventas', 'action'=>'index'))?>
             </li>
             <li class="dropdown">
                   <?php echo $this->Html->link('Sobre Nosotros', array('controller'=>'pages', 'action'=>'aboutus'))?>

@@ -1,5 +1,7 @@
 <div class="page-header">
-	<h2>Cliente: <?php echo $cliente['Cliente']['nombre'].' '.$cliente['Cliente']['apellido1']; ?></h2>
+	<font color="green">
+		<h2>Cliente: <?php echo $cliente['Cliente']['nombre']; ?></h2>
+	</font>	
 </div>
 
 <div class="col col-sm-7">
@@ -9,18 +11,36 @@
 	Nombre: <?php echo $cliente['Cliente']['nombre']; ?>
 	<br />
 	<br/>
-	Primer Apellido: <?php echo h($cliente['Cliente']['apellido1']); ?>
-	<br/>
-	<br/>
-	Segundo Apellido: <?php echo $cliente['Cliente']['apellido2']; ?>
-	<br />
-	<br/>
 	Teléfono: <?php echo $cliente['Cliente']['telefono']; ?>
 	<br />
 	<br/>
 	Correo Electrónico: <?php echo h($cliente['Cliente']['email']); ?>
 	<br/>
 	<br/>
+	<font color="green">
+		<h3><?php echo __('Facturas'); ?></h3>
+	</font>
+		<?php if (!empty($ventas)): ?>
+		<table class="table table-striped">
+			<tr>
+				<th><?php echo __('Número de factura'); ?></th>
+				<th><?php echo __('Total'); ?></th>
+				<th class="actions"><?php echo __('Acciones'); ?></th>
+			</tr>
+			<?php for($i=0; $i<count($ventas); $i++){?>
+
+			<tr>
+				<td><?php echo $ventas[$i]['id']; ?></td>
+				<td><?php echo $ventas[$i]['total']; ?></td>
+				<td class="actions">
+					<?php 
+					    echo $this->Html->link('Detalles', array('controller' => 'orden_items', 'action' => 'view', $ventas[$i]['id']), array('class' => 'btn btn-xs btn-primary'));
+					?>
+				</td>
+			</tr>
+		<?php }?>
+	</table>
+	<?php endif; ?>
 
 	</div>
 

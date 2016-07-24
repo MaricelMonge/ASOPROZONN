@@ -70,6 +70,8 @@ class VentasController extends AppController {
                 $this->Session->setFlash('El pedido no pudo ser procesado.'. 'default', array('class' => 'alert alert-danger'));
             } 
         }
+        $clientes= $this->Venta->Cliente->find('list');
+		$this->set(compact('clientes'));
         
     }
     

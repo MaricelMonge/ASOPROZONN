@@ -13,6 +13,8 @@ class Cliente extends AppModel {
  * @var string
  */
 	public $primaryKey = 'identificacion';
+	public $virtualFields = array('nombre' => "CONCAT(Cliente.nombre, ' ', Cliente.apellido1, ' ', Cliente.apellido2)");
+	public $displayField = 'nombre';
 
 /**
  * Validation rules
@@ -69,6 +71,13 @@ class Cliente extends AppModel {
  *
  * @var array
  */
-	
+		// public $hasMany = array(
+		// 	'Venta'=>array(
+		// 		'className'=>'Venta',
+		// 		'foreignKey'=>'venta_id',
+		// 		'dependent'=>false,
+				
+		// 		)
+		// 	);
 
 }

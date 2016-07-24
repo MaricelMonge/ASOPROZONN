@@ -5,7 +5,7 @@
 			<fieldset>
 				<h2>Facturación</h2>
                 <?php
-                    echo $this->Form->input('nombre', array('class' => 'form-control', 'label' => 'Nombre:'));
+            		echo $this->Form->input('cliente_id', array('class'=>'form-control','label'=>'Cliente:'));
                 ?>
 			
 			<h3>Productos: </h3>

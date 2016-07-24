@@ -43,11 +43,19 @@ class ClientesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->loadModel('Venta');
 		if (!$this->Cliente->exists($id)) {
 			throw new NotFoundException(__('Invalid cliente'));
 		}
+		$ventas=[];
 		$options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
+		$venta = $this->Venta->find('all', array('conditions' => array('Venta.cliente_id' => $id)));
+		for($i=0; $i<count($venta); $i++){
+			array_push($ventas, $venta[$i]['Venta']);
+		}
 		$this->set('cliente', $this->Cliente->find('first', $options));
+		$this->set('ventas',$ventas);
+		// return debug(count($ventas));
 	}
 
 /**

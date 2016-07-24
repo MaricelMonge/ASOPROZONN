@@ -47,7 +47,7 @@
 		
 		<tr>
 			<td><?php echo h($orden['Venta']['id']); ?></td>
-			<td><?php echo h($orden['Venta']['nombre']); ?></td>
+			<td><?php echo h($orden['Cliente']['nombre']); ?></td>
 			<td>₡<?php echo h($orden['Venta']['total']); ?></td>
 			<td>₡<?php echo h($orden['Venta']['reserva']); ?></td>
 			<td>₡<?php echo h($orden['Venta']['pago']); ?></td>

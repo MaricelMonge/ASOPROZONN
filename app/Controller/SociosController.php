@@ -46,11 +46,19 @@ class SociosController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->loadModel('Pago');
 		if (!$this->Socio->exists($id)) {
 			throw new NotFoundException(__('Invalid socio'));
 		}
+		$pagos=[];
 		$options = array('conditions' => array('Socio.' . $this->Socio->primaryKey => $id));
+		$pago = $this->Pago->find('all', array('conditions' => array('Pago.socio_id' => $id)));
+		for($i=0; $i<count($pago); $i++){
+			array_push($pagos, $pago[$i]['Pago']);
+		}
 		$this->set('socio', $this->Socio->find('first', $options));
+		$this->set('pagos',$pagos);
+		
 	}
 
 /**

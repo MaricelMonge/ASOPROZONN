@@ -1,6 +1,7 @@
 <div class="page-header">
-<h2>Socio: <?php echo $socio['Socio']['nombre'].' '.$socio['Socio']['apellido1']; ?></h2>
-
+<font color="green">
+	<h2>Socio: <?php echo $socio['Socio']['nombre']; ?></h2>
+</font>
 </div>
 
 <div class="row">
@@ -11,7 +12,9 @@
 		<br/>
 		
 		<div class="related">
-			<h3><?php echo __('Productos'); ?></h3>
+			<font color="green">
+				<h3><?php echo __('Productos'); ?></h3>
+			</font>
 				<?php if (!empty($socio['Producto'])): ?>
 			<table class="table table-striped">
 				<tr>
@@ -33,6 +36,35 @@
 			</table>
 			<?php endif; ?>
 		</div>
+		</br>
+			<font color="green">
+				<h3><?php echo __('Pagos'); ?></h3>
+			</font>
+			<?php if (!empty($pagos)): ?>
+			<table class="table table-striped">
+				<tr>
+					<th><?php echo __('Número de pago'); ?></th>
+					<th><?php echo __('Certificación'); ?></th>
+					<th><?php echo __('Cuota mensual'); ?></th>
+					<th><?php echo __('Interés acumulado'); ?></th>
+					<th><?php echo __('Otros pagos'); ?></th>
+					<th><?php echo __('Fecha'); ?></th>
+				</tr>
+				<?php for($i=0; $i<count($pagos); $i++){?>
+	
+				<tr>
+					<td><?php echo $pagos[$i]['id']; ?></td>
+					<td><?php echo $pagos[$i]['certificacion']; ?></td>
+					<td><?php echo $pagos[$i]['cuotaMensual']; ?></td>
+					<td><?php echo $pagos[$i]['interesAcumulado']; ?></td>
+					<td><?php echo $pagos[$i]['otrosPagos']; ?></td>
+					<td><?php echo $pagos[$i]['created']; ?></td>
+				</tr>
+			<?php }?>
+		</table>
+		<?php endif; ?>
+		
+		
 	</div>
 
 <div class="col col-sm-5">
@@ -43,12 +75,6 @@
 	<br />
 	<br/>
 	Nombre: <?php echo $socio['Socio']['nombre']; ?>
-	<br />
-	<br/>
-	Primer Apellido: <?php echo h($socio['Socio']['apellido1']); ?>
-	<br/>
-	<br/>
-	Segundo Apellido: <?php echo $socio['Socio']['apellido2']; ?>
 	<br />
 	<br/>
 	Teléfono: <?php echo $socio['Socio']['telefono']; ?>

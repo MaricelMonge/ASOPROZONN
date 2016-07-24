@@ -126,13 +126,13 @@ class Socio extends AppModel {
 		),
 	);
 	
-	public $hasMany = array(
-			'Pago'=>array(
-				'className'=>'Pago',
-				'foreignKey'=>'pago_id',
-				'dependent'=>false,
+	// public $hasMany = array(
+	// 		'Pago'=>array(
+	// 			'className'=>'Pago',
+	// 			'foreignKey'=>'pago_id',
+	// 			'dependent'=>false,
 				
-				)
-			);	
+	// 			)
+	// 		);	
 
 }

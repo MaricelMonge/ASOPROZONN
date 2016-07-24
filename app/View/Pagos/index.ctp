@@ -34,7 +34,7 @@
 					<td><?php echo h($pago['Pago']['cuotaMensual']); ?>&nbsp;</td>
 					<td><?php echo h($pago['Pago']['interesAcumulado']); ?>&nbsp;</td>
 					<td><?php echo h($pago['Pago']['otrosPagos']); ?>&nbsp;</td>
-					<td><?php echo h($pago['Pago']['created']); ?>&nbsp;</td>
+					<td><?php echo $this->Time->format('d-m-Y', h($pago['Pago']['created'])); ?></td>
 					<td class="actions">
 						<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $pago['Pago']['id']), array('confirm' => __('Esta seguro de eliminar a # %s?',  $pago['Pago']['id']),'class'=>'btn btn-xs btn-danger')); ?>
 					</td>

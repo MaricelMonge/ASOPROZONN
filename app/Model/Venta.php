@@ -9,7 +9,17 @@ class Venta extends AppModel{
 				'dependent'=>false,
 				
 				)
-			);		
+			);
+			
+		public $belongsTo = array(
+		'Cliente' => array(
+			'className' => 'Cliente',
+			'foreignKey' => 'cliente_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);		
     
 }
 ?>
