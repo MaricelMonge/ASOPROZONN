@@ -15,31 +15,26 @@ class PagosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('RequestHandler','Session');
+	public $helpers=array('Html', 'Form', 'Time', 'Js');
 
 /**
  * index method
  *
  * @return void
  */
+	public $paginate = array(
+    	'limit' => 3,
+    	'order' => array(
+        'Socio.numeroexp' => 'desc'
+    	)
+    );
+ 
 	public function index() {
 		$this->Pago->recursive = 0;
-		$this->set('pagos', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Pago->exists($id)) {
-			throw new NotFoundException(__('Invalid pago'));
-		}
-		$options = array('conditions' => array('Pago.' . $this->Pago->primaryKey => $id));
-		$this->set('pago', $this->Pago->find('first', $options));
+		$this->paginate['Pago']['limit']=3;
+		$this->paginate['Pago']['order']=array('Pago.id'=>'desc');
+		$this->set('pagos', $this->paginate());
 	}
 
 /**
@@ -51,41 +46,17 @@ class PagosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Pago->create();
 			if ($this->Pago->save($this->request->data)) {
-				$this->Flash->success(__('The pago has been saved.'));
+				$this->Session->setFlash('El pago se realizó correctamente.', 'default', array('class' => 'alert alert-success'));
+				// $this->Flash->success(__('El pago se realizó correctamente.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The pago could not be saved. Please, try again.'));
+				$this->Session->setFlash('El pago no se realizó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$socios = $this->Pago->Socio->find('list');
 		$this->set(compact('socios'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Pago->exists($id)) {
-			throw new NotFoundException(__('Invalid pago'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Pago->save($this->request->data)) {
-				$this->Flash->success(__('The pago has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->error(__('The pago could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Pago.' . $this->Pago->primaryKey => $id));
-			$this->request->data = $this->Pago->find('first', $options);
-		}
-		$socios = $this->Pago->Socio->find('list');
-		$this->set(compact('socios'));
-	}
 
 /**
  * delete method
@@ -101,9 +72,9 @@ class PagosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Pago->delete()) {
-			$this->Flash->success(__('The pago has been deleted.'));
+			$this->Session->setFlash('El pago se eliminó correctamente.', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Flash->error(__('The pago could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El pago no se eliminó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

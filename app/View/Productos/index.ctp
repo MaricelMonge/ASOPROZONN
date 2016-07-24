@@ -1,21 +1,3 @@
-<script>
-	$(document).ready(function() {
-	    $('#example').DataTable( {
-	         dom: 'Bfrtip',
-	         colReorder: true,
-    buttons: [
-        'colvis',
-        'print',
-        'excel', 
-        'pdf',
-        
-    ]
-	    });
-});
-</script>
-
-
-
 <?php echo $this->Html->script(array('addtocart.js'), array ('inline'=>false));?>
 
 <div id="contenedor-productos">
@@ -24,7 +6,7 @@
 </div>
 <div class="col-md-12">
 		
-<table id="example" class="display" cellspacing="0" width="100%">
+<table class="table table-striped">
 <thead>
 <tr>
 		<th><?php echo $this->Paginator->sort('Nombre'); ?></th>
@@ -62,13 +44,4 @@ echo $this->Paginator->counter(array(
 ?>
 
 </div>
-
 </div>
-	<style>
-		.dataTables_filter label, .dataTables_filter input {
-			float: right;
-			line-height: 40px;
-		}
-	</style>
-</div>
-

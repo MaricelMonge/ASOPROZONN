@@ -15,6 +15,10 @@ class Socio extends AppModel {
  */
 	public $primaryKey = 'numeroexp';
 
+	public $virtualFields = array('nombre' => "CONCAT(Socio.nombre, ' ', Socio.apellido1, ' ', Socio.apellido2)");
+	public $displayField = 'nombre';
+	// public $displayField = 'apellido1 ';
+
 	public $actsAs = array(
 		'Upload.Upload'=>array(
 			'image'=>array(
@@ -119,13 +123,16 @@ class Socio extends AppModel {
 			'foreignKey' => 'numeroexp_id',
 			'associationForeignKey' => 'codigo_id',
 			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
 		),
 	);
+	
+	public $hasMany = array(
+			'Pago'=>array(
+				'className'=>'Pago',
+				'foreignKey'=>'pago_id',
+				'dependent'=>false,
+				
+				)
+			);	
 
 }

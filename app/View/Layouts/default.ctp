@@ -34,6 +34,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		echo $this->Html->css(array('style.css','bootstrap.min','bootstrap-theme.min','fileinput.min','jquery-ui.min'));
 		echo $this->Html->script(array('jquery.min','bootstrap.min', 'fileinput.min','jquery-ui.min'));
+		echo $this->Html->css('../DataTables/datatables.css');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');	
 		echo $this->fetch('script');
@@ -54,12 +55,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
    		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>  
+		
 	
 		<br>
 		<div id="msg"></div>
 		<br>
 
 	</div>
-
+		
+	<script type="text/javascript" src="DataTables/datatables.js"></script>	
+	 <?php echo $this->Js->writeBuffer(); ?>
 </body>
 </html>
