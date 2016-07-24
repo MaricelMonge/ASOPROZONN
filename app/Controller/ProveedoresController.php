@@ -57,10 +57,10 @@ class ProveedoresController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Proveedore->create();
 			if ($this->Proveedore->save($this->request->data)) {
-				$this->Flash->success(__('The proveedore has been saved.'));
+				$this->Session->setFlash('El proveedor se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The proveedore could not be saved. Please, try again.'));
+				$this->Session->setFlash('El proveedor no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$insumos = $this->Proveedore->Insumo->find('list');
@@ -80,10 +80,10 @@ class ProveedoresController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Proveedore->save($this->request->data)) {
-				$this->Flash->success(__('The proveedore has been saved.'));
+				$this->Session->setFlash('El proveedor se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The proveedore could not be saved. Please, try again.'));
+				$this->Session->setFlash('El proveedor no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
@@ -107,9 +107,9 @@ class ProveedoresController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Proveedore->delete()) {
-			$this->Flash->success(__('The proveedore has been deleted.'));
+			$this->Session->setFlash('El proveedor se eliminó correctamente.', 'default', array('class' => 'alert alert-success'));	
 		} else {
-			$this->Flash->error(__('The proveedore could not be deleted. Please, try again.'));
+				$this->Session->setFlash('El proveedor no se eliminó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

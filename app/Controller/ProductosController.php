@@ -63,10 +63,10 @@ class ProductosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Producto->create();
 			if ($this->Producto->save($this->request->data)) {
-				$this->Flash->success(__('The producto has been saved.'));
+				$this->Session->setFlash('El producto se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The producto could not be saved. Please, try again.'));
+				$this->Session->setFlash('El producto no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$socios = $this->Producto->Socio->find('list');
@@ -86,10 +86,10 @@ class ProductosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Producto->save($this->request->data)) {
-				$this->Flash->success(__('The producto has been saved.'));
+				$this->Session->setFlash('El producto se guardó correctamente.', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The producto could not be saved. Please, try again.'));
+				$this->Session->setFlash('El producto no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Producto.' . $this->Producto->primaryKey => $id));
@@ -113,9 +113,9 @@ class ProductosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Producto->delete()) {
-			$this->Flash->success(__('The producto has been deleted.'));
+			$this->Session->setFlash('El producto se eliminó correctamente.', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Flash->error(__('The producto could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El producto no se eliminó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

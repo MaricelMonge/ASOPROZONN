@@ -36,7 +36,7 @@ public function view(){
         
         if(count($res_pedidos) == 0)
         {
-            $this->Session->setFlash('Aún no se realizaron pedidos', 'default', array('class' => 'alert alert-warning'));
+            $this->Session->setFlash('Aún no se han realizado pedidos', 'default', array('class' => 'alert alert-warning'));
             return $this->redirect(array('controller' => 'productos', 'action' => 'index'));
         }
         
@@ -108,11 +108,11 @@ public function view(){
     {
         if($this->Pedido->deleteAll(1, false))
         {
-            $this->Session->setFlash('Todos los productos se quitaron', 'default', array('class' => 'alert alert-success'));
+            $this->Session->setFlash('Todos los productos fueron removidos', 'default', array('class' => 'alert alert-success'));
         }
         else
         {
-            $this->Session->setFlash('No se pudo quitar los productos', 'default', array('class' => 'alert alert-danger'));
+            $this->Session->setFlash('No se pudieron remover los productos', 'default', array('class' => 'alert alert-danger'));
         }
         
         return $this->redirect(array('controller' => 'productos', 'action' => 'index'));

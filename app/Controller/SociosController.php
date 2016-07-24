@@ -63,10 +63,10 @@ class SociosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Socio->create();
 			if ($this->Socio->save($this->request->data)) {
-				$this->Flash->success(__('The socio has been saved.'));
+				$this->Session->setFlash('El socio se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The socio could not be saved. Please, try again.'));
+				$this->Session->setFlash('El socio no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$productos = $this->Socio->Producto->find('list');
@@ -86,10 +86,10 @@ class SociosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Socio->save($this->request->data)) {
-				$this->Flash->success(__('The socio has been saved.'));
+				$this->Session->setFlash('El socio se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The socio could not be saved. Please, try again.'));
+				$this->Session->setFlash('El socio no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Socio.' . $this->Socio->primaryKey => $id));
@@ -113,9 +113,9 @@ class SociosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Socio->delete()) {
-			$this->Flash->success(__('The socio has been deleted.'));
+			$this->Session->setFlash('El socio se eliminó correctamente.', 'default', array('class' => 'alert alert-success'));	
 		} else {
-			$this->Flash->error(__('The socio could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El socio no se eliminó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

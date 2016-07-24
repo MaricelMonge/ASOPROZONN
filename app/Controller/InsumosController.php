@@ -65,10 +65,10 @@ class InsumosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Insumo->create();
 			if ($this->Insumo->save($this->request->data)) {
-				$this->Flash->success(__('The insumo has been saved.'));
+				$this->Session->setFlash('El insumo se guardó correctamente.', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The insumo could not be saved. Please, try again.'));
+				$this->Session->setFlash('El insumo no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$proveedores = $this->Insumo->Proveedore->find('list');
@@ -88,10 +88,10 @@ class InsumosController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Insumo->save($this->request->data)) {
-				$this->Flash->success(__('The insumo has been saved.'));
+				$this->Session->setFlash('El insumo se guardó correctamente.', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Flash->error(__('The insumo could not be saved. Please, try again.'));
+				$this->Session->setFlash('El insumo no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Insumo.' . $this->Insumo->primaryKey => $id));
@@ -115,9 +115,9 @@ class InsumosController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Insumo->delete()) {
-			$this->Flash->success(__('The insumo has been deleted.'));
+			$this->Session->setFlash('El insumo se eliminó correctamente.', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Flash->error(__('The insumo could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El insumo no se eliminó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
