@@ -7,12 +7,14 @@
 <div class="row">
 
 <div class="col col-sm-6">
+	<p  align="center">
 		<?php 
 			if (!empty($socio['Socio']['image_dir'])){
 				echo $this->Html->image('../files/socio/image/' .$socio['Socio']['image_dir'] . '/'.$socio['Socio']['image'], array('style'=>'height: 250px; width: 65%;'));
 			}else{
 				echo $this->Html->image('icono.jpg', array('style'=>'height: 250px; width: 65%;'));
 			}?>
+	</p>
 		<br/>
 		<br/>
 		

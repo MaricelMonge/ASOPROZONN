@@ -5,13 +5,15 @@
 </div>
 
 <div class="row">
-	<div class="col col-sm-7">
-		<?php 
-			if (!empty($insumo['Insumo']['image_dir'])){
-				echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.$insumo['Insumo']['image'], array('style'=>'height: 250px; width: 65%;'));
-			}else{
-				echo $this->Html->image('../files/insumo/insumos.jpg', array('style'=>'height: 250px; width: 65%;'));
+	<div class="col col-sm-6">
+		<p align="center">
+			<?php 
+				if (!empty($insumo['Insumo']['image_dir'])){
+					echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.$insumo['Insumo']['image'], array('style'=>'height: 250px; width: 65%;'));
+				}else{
+					echo $this->Html->image('../files/insumo/insumos.jpg', array('style'=>'height: 250px; width: 65%;'));
 				}?>
+		</p>		
 		<br/>
 		<br/>
 		<div class="related">
@@ -39,7 +41,7 @@
 		</div>
 	</div>
 
-<div class="col col-sm-5">
+<div class="col col-sm-6">
 	Código: <?php echo h($insumo['Insumo']['codigo']); ?>
 	<br/>
 	<br/>
