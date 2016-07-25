@@ -1,7 +1,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
+			<font color="green">
 			<?php echo $this->Form->create('Socio', array('type'=>'file', 'novalidate'=>'novalidate')); ?>
+			</font>
 			<fieldset>
 				<div class="page-header">
 					<h2><?php echo __('Nuevo Socio'); ?></h2>
@@ -30,7 +32,7 @@
 			
 				<br>
 			</fieldset>
-		<?php echo $this->Form->end(array('label'=>'Crear Socio', 'class'=>'btn btn-success')); ?>
+		<?php echo $this->Form->end(array('label'=>'Guardar', 'class'=>'btn btn-success')); ?>
 		</div>
 	</div>
 </div>

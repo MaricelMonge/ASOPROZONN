@@ -25,7 +25,7 @@ class SociosController extends AppController {
  */
  
  	  public $paginate = array(
-        'limit' => 3,
+        'limit' => 5,
         'order' => array(
             'Socio.numeroexp' => 'desc'
         )
@@ -33,7 +33,7 @@ class SociosController extends AppController {
  
 	public function index() {
 		$this->Socio->recursive = 0;
-		$this->paginate['Socio']['limit']=3;
+		$this->paginate['Socio']['limit']=5;
 		$this->paginate['Socio']['order']=array('Socio.numeroexp'=>'desc');
 		$this->set('socios', $this->paginate());
 	}
@@ -127,4 +127,6 @@ class SociosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+
 }

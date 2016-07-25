@@ -1,13 +1,18 @@
 <div class="page-header">
-<font color="green">
-	<h2>Socio: <?php echo $socio['Socio']['nombre']; ?></h2>
-</font>
+	<font color="green">
+		<h2>Socio: <?php echo $socio['Socio']['nombre1']; ?></h2>
+	</font>
 </div>
 
 <div class="row">
 
-<div class="col col-sm-7">
-		<?php echo $this->Html->image('../files/socio/image/' .$socio['Socio']['image_dir'] . '/' . 'vga_' .$socio['Socio']['image'], array('class' => 'img-thumbnail img-responsive')); ?>
+<div class="col col-sm-6">
+		<?php 
+			if (!empty($socio['Socio']['image_dir'])){
+				echo $this->Html->image('../files/socio/image/' .$socio['Socio']['image_dir'] . '/'.$socio['Socio']['image'], array('style'=>'height: 250px; width: 65%;'));
+			}else{
+				echo $this->Html->image('icono.jpg', array('style'=>'height: 250px; width: 65%;'));
+			}?>
 		<br/>
 		<br/>
 		
@@ -67,14 +72,14 @@
 		
 	</div>
 
-<div class="col col-sm-5">
+<div class="col col-sm-6">
 	N. Expediente: <?php echo h($socio['Socio']['numeroexp']); ?>
 	<br/>
 	<br/>
 	Identificación: <?php echo $socio['Socio']['identificacion']; ?>
 	<br />
 	<br/>
-	Nombre: <?php echo $socio['Socio']['nombre']; ?>
+	Nombre: <?php echo $socio['Socio']['nombre1']; ?>
 	<br />
 	<br/>
 	Teléfono: <?php echo $socio['Socio']['telefono']; ?>
@@ -113,9 +118,6 @@
 	<li><?php echo $this->Html->link(__('Editar Socio'), array('action' => 'edit', $socio['Socio']['numeroexp'])); ?> </li>
 	<li><?php echo $this->Form->postLink(__('Eliminar Socio'), array('action' => 'delete', $socio['Socio']['numeroexp']), array('confirm' => __('Esta seguro de eliminar # %s?', $socio['Socio']['numeroexp']))); ?> </li>
 	<li><?php echo $this->Html->link(__('Lista de Socios'), array('action' => 'index')); ?> </li>
-	<li class="divider"></li>
-	<li><?php echo $this->Html->link(__('Lista de Productos'), array('controller' => 'productos', 'action' => 'index')); ?> </li>
-	<li><?php echo $this->Html->link(__('Nuevo Producto'), array('controller' => 'productos', 'action' => 'add')); ?> </li>
 	</ul>
 	</div>
 
