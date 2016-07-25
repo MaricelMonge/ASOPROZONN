@@ -1,18 +1,11 @@
 <div class="page-header">
-	<h2>Proveedor: <?php echo $proveedore['Proveedore']['nombre'].' '.$proveedore['Proveedore']['apellido1']; ?></h2>
+	<font color="green">
+		<h2>Proveedor: <?php echo $proveedore['Proveedore']['nombre1']?></h2>
+	</font>
 </div>
 
 <div class="col col-sm-7">
-	Identificación: <?php echo $proveedore['Proveedore']['identificacion']; ?>
-	<br />
-	<br/>
-	Nombre: <?php echo $proveedore['Proveedore']['nombre']; ?>
-	<br />
-	<br/>
-	Primer Apellido: <?php echo h($proveedore['Proveedore']['apellido1']); ?>
-	<br/>
-	<br/>
-	Segundo Apellido: <?php echo $proveedore['Proveedore']['apellido2']; ?>
+	Nombre: <?php echo $proveedore['Proveedore']['nombre1']; ?>
 	<br />
 	<br/>
 	Teléfono: <?php echo $proveedore['Proveedore']['telefono']; ?>
@@ -27,8 +20,10 @@
 
 	<div class="row">
 		<div class="related">
-			<h3><?php echo __('Insumos'); ?></h3>
-				<?php if (!empty($proveedore['Insumo'])): ?>
+			<?php if (!empty($proveedore['Insumo'])): ?>
+			<font color="green">
+				<h3><?php echo __('Insumos'); ?></h3>
+			</font>
 			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Código'); ?></th>
@@ -40,18 +35,17 @@
 				<tr>
 					<td><?php echo $insumo['codigo']; ?></td>
 					<td><?php echo $insumo['nombre']; ?></td>
-					<td><?php echo $insumo['precio']; ?></td>
+					<td>₡ <?php echo $insumo['precio']; ?></td>
 					<td class="actions">
-					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'insumos', 'action' => 'view', $insumo['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
+						<?php echo $this->Html->link(__('Detalles'), array('controller' => 'insumos', 'action' => 'view', $insumo['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
 			</table>
 			<?php endif; ?>
 		</div>
-	
 	</div>
-	</div>
+</div>
 
 <div class="col col-sm-5">
 	<div class="btn-group">
@@ -63,15 +57,6 @@
 			<li><?php echo $this->Form->postLink(__('Eliminar Proveedor'), array('action' => 'delete', $proveedore['Proveedore']['identificacion']), array('confirm' => __('Are you sure you want to delete # %s?', $proveedore['Proveedore']['identificacion']))); ?> </li>
 			<li><?php echo $this->Html->link(__('Lista de Proveedores'), array('action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(__('Nuevo Proveedor'), array('action' => 'add')); ?> </li>
-	<li class="divider"></li>
-		<li><?php echo $this->Html->link(__('Lista de Insumos'), array('controller' => 'insumos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nuevo Insumo'), array('controller' => 'insumos', 'action' => 'add')); ?> </li>
 	</ul>
 	</div>
-		</div>
-
-</div>	
 </div>
-
-
-
