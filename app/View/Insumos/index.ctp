@@ -1,5 +1,7 @@
 <div class="page-header">
-<h2><?php echo __('Insumos'); ?></h2>
+	<font color="green">
+		<h2><?php echo __('Insumos'); ?></h2>
+	</font>
 </div>
 <div class="col-md-20">
 	<table class="table table-striped">
@@ -16,7 +18,13 @@
 <tr>
 	<td><?php echo h($insumo['Insumo']['nombre']); ?>&nbsp;</td>
 	<td> ₡ <?php echo h($insumo['Insumo']['precio']); ?>&nbsp;</td>
-	<td><?php echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.'thumb_'.$insumo['Insumo']['image']);?></td>
+	<td><?php 
+			if (!empty($insumo['Insumo']['image_dir'])){
+				echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.$insumo['Insumo']['image'], array('style'=>'height: 100px; width: 80%;'));
+			}else{
+				echo $this->Html->image('../files/insumo/insumos.jpg', array('style'=>'height: 100px; width: 80%;'));
+				}?>
+	</td>
 	<td class="actions">
 		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
 		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>

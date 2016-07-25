@@ -26,7 +26,7 @@ class InsumosController extends AppController {
 
 
 	  public $paginate = array(
-        'limit' => 3,
+        'limit' => 5,
         'order' => array(
             'Insumo.codigo' => 'asc'
         )
@@ -34,7 +34,7 @@ class InsumosController extends AppController {
  
 	public function index() {
 		$this->Insumo->recursive = 0;
-		$this->paginate['Insumo']['limit']=3;
+		$this->paginate['Insumo']['limit']=5;
 		$this->paginate['Insumo']['order']=array('Insumo.codigo'=>'asc');
 		$this->set('insumos', $this->paginate());
 	}

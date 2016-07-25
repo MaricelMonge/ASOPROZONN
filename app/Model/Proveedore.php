@@ -14,6 +14,8 @@ class Proveedore extends AppModel {
  * @var string
  */
 	public $primaryKey = 'identificacion';
+	public $virtualFields = array('nombre1' => "CONCAT(Proveedore.nombre, ' ', Proveedore.apellido1, ' ', Proveedore.apellido2)");
+	public $displayField = 'nombre1';
 
 /**
  * Validation rules

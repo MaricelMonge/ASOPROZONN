@@ -24,7 +24,7 @@ class PagosController extends AppController {
  * @return void
  */
 	public $paginate = array(
-    	'limit' => 3,
+    	'limit' => 8,
     	'order' => array(
         'Socio.numeroexp' => 'desc'
     	)
@@ -32,7 +32,7 @@ class PagosController extends AppController {
  
 	public function index() {
 		$this->Pago->recursive = 0;
-		$this->paginate['Pago']['limit']=3;
+		$this->paginate['Pago']['limit']=8;
 		$this->paginate['Pago']['order']=array('Pago.id'=>'desc');
 		$this->set('pagos', $this->paginate());
 	}

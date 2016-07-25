@@ -17,7 +17,7 @@
 					?>
 					<br>
 			</fieldset>
-			<?php echo $this->Form->end(array('label'=>'Crear Insumo', 'class'=>'btn btn-success')); ?>
+			<?php echo $this->Form->end(array('label'=>'Guardar', 'class'=>'btn btn-success')); ?>
 		</div>
 	</div>
 </div>

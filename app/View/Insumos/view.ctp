@@ -1,26 +1,33 @@
 <div class="page-header">
-	<h2>Insumo: <?php echo $insumo['Insumo']['nombre']; ?></h2>
+	<font color="green">
+		<h2>Insumo: <?php echo $insumo['Insumo']['nombre']; ?></h2>
+	</font>
 </div>
 
 <div class="row">
 	<div class="col col-sm-7">
-		<?php echo $this->Html->image('../files/insumo/image/' .$insumo['Insumo']['image_dir'] . '/' . 'vga_' .$insumo['Insumo']['image'], array('class' => 'img-thumbnail img-responsive')); ?>
+		<?php 
+			if (!empty($insumo['Insumo']['image_dir'])){
+				echo $this->Html->image('../files/insumo/image/' . $insumo['Insumo']['image_dir'].'/'.$insumo['Insumo']['image'], array('style'=>'height: 250px; width: 65%;'));
+			}else{
+				echo $this->Html->image('../files/insumo/insumos.jpg', array('style'=>'height: 250px; width: 65%;'));
+				}?>
 		<br/>
 		<br/>
 		<div class="related">
-			<h3><?php echo __('Proveedores'); ?></h3>
-				<?php if (!empty($insumo['Proveedore'])): ?>
+			<?php if (!empty($insumo['Proveedore'])): ?>
+			<font color="green">
+				<h3><?php echo __('Proveedores'); ?></h3>
+			</font>
 			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Nombre'); ?></th>
-					<th><?php echo __('Apellido'); ?></th>
 					<th><?php echo __('Teléfono'); ?></th>
 					<th class="actions"><?php echo __('Acciones'); ?></th>
 				</tr>
 				<?php foreach ($insumo['Proveedore'] as $proveedore): ?>
 				<tr>
-					<td><?php echo $proveedore['nombre']; ?></td>
-					<td><?php echo $proveedore['apellido1']; ?></td>
+					<td><?php echo $proveedore['nombre1']; ?></td>
 					<td><?php echo $proveedore['telefono']; ?></td>
 					<td class="actions">
 					<?php echo $this->Html->link(__('Detalles'), array('controller' => 'proveedores', 'action' => 'view', $proveedore['identificacion']), array('class'=>'btn btn-xs btn-primary')); ?>
@@ -52,9 +59,6 @@
 		<li><?php echo $this->Form->postLink(__('Eliminar Insumo'), array('action' => 'delete', $insumo['Insumo']['codigo']), array('confirm' => __('Are you sure you want to delete # %s?', $insumo['Insumo']['codigo']))); ?> </li>
 		<li><?php echo $this->Html->link(__('Lista de Insumos'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Nuevo Insumo'), array('action' => 'add')); ?> </li>
-		<li class="divider"></li>
-			<li><?php echo $this->Html->link(__('Lista de Proveedores'), array('controller' => 'proveedores', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(__('Nuevo Proveedor'), array('controller' => 'proveedores', 'action' => 'add')); ?> </li>
 	</ul>
 	</div>
 </div>
