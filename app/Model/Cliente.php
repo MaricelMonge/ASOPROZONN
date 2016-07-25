@@ -13,8 +13,8 @@ class Cliente extends AppModel {
  * @var string
  */
 	public $primaryKey = 'identificacion';
-	public $virtualFields = array('nombre' => "CONCAT(Cliente.nombre, ' ', Cliente.apellido1, ' ', Cliente.apellido2)");
-	public $displayField = 'nombre';
+	public $virtualFields = array('nombre1' => "CONCAT(Cliente.nombre, ' ', Cliente.apellido1, ' ', Cliente.apellido2)");
+	public $displayField = 'nombre1';
 
 /**
  * Validation rules

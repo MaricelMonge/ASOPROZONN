@@ -17,10 +17,11 @@
 		<br/>
 		
 		<div class="related">
+			<?php if (!empty($socio['Producto'])): ?>
 			<font color="green">
 				<h3><?php echo __('Productos'); ?></h3>
 			</font>
-				<?php if (!empty($socio['Producto'])): ?>
+				
 			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Código'); ?></th>
@@ -42,10 +43,10 @@
 			<?php endif; ?>
 		</div>
 		</br>
+			<?php if (!empty($pagos)): ?>
 			<font color="green">
 				<h3><?php echo __('Pagos'); ?></h3>
 			</font>
-			<?php if (!empty($pagos)): ?>
 			<table class="table table-striped">
 				<tr>
 					<th><?php echo __('Número de pago'); ?></th>

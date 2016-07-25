@@ -4,7 +4,9 @@
 <?php echo $this->Form->create('Cliente', array('type'=>'file', 'novalidate'=>'novalidate')); ?>
 	<fieldset>
 	<div class="page-header">
-		<h2><?php echo __('Editar Cliente'); ?></h2>
+		<font color="green">
+			<h2><?php echo __('Editar Cliente'); ?></h2>
+		</font>
 	</div>
 
 	<?php
@@ -18,7 +20,7 @@
 	
 	</fieldset>
 	<br>
-	<?php echo $this->Form->end(array('label'=>'Editar Cliente', 'class'=>'btn btn-success')); ?>
+	<?php echo $this->Form->end(array('label'=>'Guardar', 'class'=>'btn btn-success')); ?>
 
 </div>
 

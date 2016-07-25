@@ -29,7 +29,7 @@
 		<tbody>
 			<?php foreach ($pagos as $pago): ?>
 				<tr>
-					<td><?php echo $pago['Socio']['nombre']; ?>&nbsp;</td>
+					<td><?php echo $pago['Socio']['nombre1']; ?>&nbsp;</td>
 					<td><?php echo h($pago['Pago']['certificacion']); ?>&nbsp;</td>
 					<td><?php echo h($pago['Pago']['cuotaMensual']); ?>&nbsp;</td>
 					<td><?php echo h($pago['Pago']['interesAcumulado']); ?>&nbsp;</td>

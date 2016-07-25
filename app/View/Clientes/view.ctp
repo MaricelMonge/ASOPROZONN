@@ -1,14 +1,11 @@
 <div class="page-header">
 	<font color="green">
-		<h2>Cliente: <?php echo $cliente['Cliente']['nombre']; ?></h2>
+		<h2>Cliente: <?php echo $cliente['Cliente']['nombre1']; ?></h2>
 	</font>	
 </div>
 
 <div class="col col-sm-7">
-	Identificación: <?php echo $cliente['Cliente']['identificacion']; ?>
-	<br />
-	<br/>
-	Nombre: <?php echo $cliente['Cliente']['nombre']; ?>
+	Nombre: <?php echo $cliente['Cliente']['nombre1']; ?>
 	<br />
 	<br/>
 	Teléfono: <?php echo $cliente['Cliente']['telefono']; ?>
@@ -17,10 +14,10 @@
 	Correo Electrónico: <?php echo h($cliente['Cliente']['email']); ?>
 	<br/>
 	<br/>
-	<font color="green">
-		<h3><?php echo __('Facturas'); ?></h3>
-	</font>
-		<?php if (!empty($ventas)): ?>
+	<?php if (!empty($ventas)): ?>
+		<font color="green">
+			<h3><?php echo __('Facturas'); ?></h3>
+		</font>
 		<table class="table table-striped">
 			<tr>
 				<th><?php echo __('Número de factura'); ?></th>
