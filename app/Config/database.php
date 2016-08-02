@@ -57,7 +57,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'maricelmonge',
 		'password' => '',
-		'database' => 'agroprozon',
+		'database' => 'asoprozonn',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);

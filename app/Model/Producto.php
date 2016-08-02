@@ -70,11 +70,11 @@ class Producto extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Socio' => array(
-			'className' => 'Socio',
-			'joinTable' => 'productos_socios',
-			'foreignKey' => 'codigo_id',
-			'associationForeignKey' => 'numeroexp_id',
+		'User' => array(
+			'className' => 'User',
+			'joinTable' => 'productos_users',
+			'foreignKey' => 'producto_id',
+			'associationForeignKey' => 'user_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

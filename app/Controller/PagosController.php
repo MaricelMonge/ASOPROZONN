@@ -53,8 +53,8 @@ class PagosController extends AppController {
 				$this->Session->setFlash('El pago no se realizó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$socios = $this->Pago->Socio->find('list');
-		$this->set(compact('socios'));
+		$users = $this->Pago->User->find('list');
+		$this->set(compact('users'));
 	}
 
 

@@ -17,13 +17,15 @@
             <li class="dropdown">
                   <?php echo $this->Html->link('ASOPROZONN', array('controller'=>'pages', 'action'=>'home'))?>
             </li>
+            <?php if($current_user['role']=='Administrador'||$current_user['role']=='Socio'){?>
            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Socios <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                  <li><?php echo $this->Html->link('Lista de Socios', array('controller'=>'socios', 'action'=>'index'))?></li>
-                   <li><?php echo $this->Html->link('Nuevo Socio', array('controller'=>'socios', 'action'=>'add'))?></li>
+                  <li><?php echo $this->Html->link('Lista de Socios', array('controller'=>'users', 'action'=>'index'))?></li>
+                   <li><?php echo $this->Html->link('Nuevo Socio', array('controller'=>'users', 'action'=>'add'))?></li>
               </ul>
             </li>
+            <?php }?>
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Productos <span class="caret"></span></a>
@@ -40,12 +42,12 @@
                    <li><?php echo $this->Html->link('Nuevo Proveedor', array('controller'=>'proveedores', 'action'=>'add'))?></li>
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Insumos <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  <li><?php echo $this->Html->link('Lista de Insumos', array('controller'=>'insumos', 'action'=>'index'))?></li>
-                   <li><?php echo $this->Html->link('Nuevo Insumo', array('controller'=>'insumos', 'action'=>'add'))?></li>
-              </ul>
+            <!--<li class="dropdown">-->
+              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Insumos <span class="caret"></span></a>-->
+              <!--<ul class="dropdown-menu">-->
+                  <!--<li><?php //echo $this->Html->link('Lista de Insumos', array('controller'=>'insumos', 'action'=>'index'))?></li>-->
+                   <!--<li><?php //echo $this->Html->link('Nuevo Insumo', array('controller'=>'insumos', 'action'=>'add'))?></li>-->
+              <!--</ul>-->
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Clientes <span class="caret"></span></a>
@@ -72,7 +74,10 @@
             
             
            <?php echo $this->Html->link('Pedidos', array('controller'=>'pedidos', 'action'=>'view'), array('class'=>'btn btn-info navbar-btn'));?>
-            
+           
+           <?php if(isset($current_user)): ?>
+                <?php echo $this->Html->link('Cerrar sesión', array('controller'=>'users', 'action'=>'logout'), array('class'=>'btn btn-success navbar-btn'));?>
+            <?php endif; ?>
           
           </ul>
         </div><!--/.nav-collapse -->

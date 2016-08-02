@@ -16,9 +16,9 @@ class Pago extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Socio' => array(
-			'className' => 'Socio',
-			'foreignKey' => 'socio_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

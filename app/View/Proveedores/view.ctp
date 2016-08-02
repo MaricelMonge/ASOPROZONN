@@ -57,6 +57,8 @@
 			<li><?php echo $this->Form->postLink(__('Eliminar Proveedor'), array('action' => 'delete', $proveedore['Proveedore']['identificacion']), array('confirm' => __('Are you sure you want to delete # %s?', $proveedore['Proveedore']['identificacion']))); ?> </li>
 			<li><?php echo $this->Html->link(__('Lista de Proveedores'), array('action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(__('Nuevo Proveedor'), array('action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Lista de Insumos'), array('controller'=>'insumos','action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(__('Nuevo Insumo'), array('controller'=>'insumos','action' => 'add')); ?> </li>
 	</ul>
 	</div>
 </div>

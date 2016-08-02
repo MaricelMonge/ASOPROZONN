@@ -69,8 +69,8 @@ class ProductosController extends AppController {
 				$this->Session->setFlash('El producto no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$socios = $this->Producto->Socio->find('list');
-		$this->set(compact('socios'));
+		$users = $this->Producto->User->find('list');
+		$this->set(compact('users'));
 	}
 
 /**
@@ -95,8 +95,8 @@ class ProductosController extends AppController {
 			$options = array('conditions' => array('Producto.' . $this->Producto->primaryKey => $id));
 			$this->request->data = $this->Producto->find('first', $options);
 		}
-		$socios = $this->Producto->Socio->find('list');
-		$this->set(compact('socios'));
+		$users = $this->Producto->User->find('list');
+		$this->set(compact('users'));
 	}
 
 /**
