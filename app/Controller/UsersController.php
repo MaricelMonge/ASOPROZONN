@@ -28,7 +28,7 @@ class UsersController extends AppController {
 	{
 		if($user['role'] == 'Administrador')
 		{
-			if(in_array($this->action, array('add', 'index', 'view', 'edit')))
+			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'edit_role', 'delete')))
 			{
 				return true;
 			}
@@ -168,6 +168,24 @@ class UsersController extends AppController {
 		$productos = $this->User->Producto->find('list');
 		$this->set(compact('productos'));
 	}
+	
+	public function edit_role($id = null) {
+		if (!$this->User->exists($id)) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('El socio se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('El socio no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
+			}
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+			$this->request->data = $this->User->find('first', $options);
+		}
+	}
+	
 
 /**
  * delete method

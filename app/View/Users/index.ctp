@@ -42,6 +42,7 @@ $this->Paginator->options(array('update'=>'#contenedor-users',
 						<td class="actions">
 							<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $user['User']['id']), array('class'=>'btn btn-xs btn-primary')); ?>
 							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $user['User']['id']), array('class'=>'btn btn-xs btn-success')); ?>
+							<?php echo $this->Html->link(__('Editar Rol'), array('action' => 'edit_role', $user['User']['id']), array('class'=>'btn btn-xs btn-success')); ?>
 							<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $user['User']['id']), array('confirm' => __('Esta seguro de eliminar a # %s?', $user['User']['id']),'class'=>'btn btn-xs btn-danger')); ?>
 						</td>
 					</tr>
