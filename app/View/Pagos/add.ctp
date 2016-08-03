@@ -9,7 +9,7 @@
 					</font>
 				</div>
 				<?php
-					echo $this->Form->input('socio_id', array('class'=>'form-control','label'=>'Socio:'));
+					echo $this->Form->input('user_id', array('class'=>'form-control','label'=>'Socio:'));
 					echo $this->Form->input('certificacion', array('class'=>'form-control','label'=>'Certificación:'));
 					echo $this->Form->input('cuotaMensual', array('class'=>'form-control','label'=>'Cuota mensual:'));
 					echo $this->Form->input('interesAcumulado', array('class'=>'form-control','label'=>'Interés Acumulado:'));
