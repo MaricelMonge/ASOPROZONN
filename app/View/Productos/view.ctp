@@ -51,19 +51,21 @@
 		Descripción: <?php echo $producto['Producto']['descripcion']; ?>
 		<br />
 		<br/>
-		<?php echo $this->Form->button('Agregar a pedido', array('class' => 'btn btn-success addtocart', 'id' => $producto['Producto']['codigo']) );?>
-		<br />
-		<br/>
-	
-		<div class="btn-group">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-		    	<?php echo __('Acciones'); ?> <span class="caret"></span>
-		  	</button>
-		 	 <ul class="dropdown-menu" role="menu">
-				<li><?php echo $this->Html->link(__('Editar Producto'), array('action' => 'edit', $producto['Producto']['codigo'])); ?> </li>
-				<li><?php echo $this->Form->postLink(__('Eliminar Producto'), array('action' => 'delete', $producto['Producto']['codigo']), array('confirm' => __('Are you sure you want to delete # %s?', $producto['Producto']['codigo']))); ?> </li>
-				<li><?php echo $this->Html->link(__('Lista de Productos'), array('action' => 'index')); ?> </li>
-			</ul>
-		</div>
+		<?php if($current_user['role']=='Administrador'){?>
+			<?php echo $this->Form->button('Agregar a pedido', array('class' => 'btn btn-success addtocart', 'id' => $producto['Producto']['codigo']) );?>
+			<br />
+			<br/>
+		
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+			    	<?php echo __('Acciones'); ?> <span class="caret"></span>
+			  	</button>
+			 	 <ul class="dropdown-menu" role="menu">
+					<li><?php echo $this->Html->link(__('Editar Producto'), array('action' => 'edit', $producto['Producto']['codigo'])); ?> </li>
+					<li><?php echo $this->Form->postLink(__('Eliminar Producto'), array('action' => 'delete', $producto['Producto']['codigo']), array('confirm' => __('Are you sure you want to delete # %s?', $producto['Producto']['codigo']))); ?> </li>
+					<li><?php echo $this->Html->link(__('Lista de Productos'), array('action' => 'index')); ?> </li>
+				</ul>
+			</div>
+		<?php }?>
 	</div>
 </div>

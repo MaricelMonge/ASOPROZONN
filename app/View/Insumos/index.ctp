@@ -27,9 +27,11 @@
 	</td>
 	<td class="actions">
 		<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-primary')); ?>
-		<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
-		<?php echo $this->Html->link(__('Editar imagen'), array('action' => 'edit_image', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
-		<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $insumo['Insumo']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $insumo['Insumo']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
+		<?php if($current_user['role']=='Administrador'){?>
+			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-success')); ?>
+			<?php echo $this->Html->link(__('Editar imagen'), array('action' => 'edit_image', $insumo['Insumo']['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $insumo['Insumo']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $insumo['Insumo']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
+		<?php }?>
 	</td>
 </tr>
 <?php endforeach; ?>

@@ -51,18 +51,19 @@
 	Descripción: <?php echo $insumo['Insumo']['descripcion']; ?>
 	<br />
 	<br/>
-
-	<div class="btn-group">
-	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	    <?php echo __('Acciones'); ?> <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" role="menu">
-		<li><?php echo $this->Html->link(__('Editar Insumo'), array('action' => 'edit', $insumo['Insumo']['codigo'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Eliminar Insumo'), array('action' => 'delete', $insumo['Insumo']['codigo']), array('confirm' => __('Are you sure you want to delete # %s?', $insumo['Insumo']['codigo']))); ?> </li>
-		<li><?php echo $this->Html->link(__('Lista de Insumos'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nuevo Insumo'), array('action' => 'add')); ?> </li>
-	</ul>
-	</div>
+	<?php if($current_user['role']=='Administrador'){?>
+		<div class="btn-group">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    <?php echo __('Acciones'); ?> <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+			<li><?php echo $this->Html->link(__('Editar Insumo'), array('action' => 'edit', $insumo['Insumo']['codigo'])); ?> </li>
+			<li><?php echo $this->Form->postLink(__('Eliminar Insumo'), array('action' => 'delete', $insumo['Insumo']['codigo']), array('confirm' => __('Are you sure you want to delete # %s?', $insumo['Insumo']['codigo']))); ?> </li>
+			<li><?php echo $this->Html->link(__('Lista de Insumos'), array('action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(__('Nuevo Insumo'), array('action' => 'add')); ?> </li>
+		</ul>
+		</div>
+	<?php }?>	
 </div>
 </div>
 </div>

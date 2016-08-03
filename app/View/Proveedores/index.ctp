@@ -21,8 +21,10 @@
 					<td><?php echo h($proveedore['Proveedore']['telefono']); ?>&nbsp;</td>
 					<td class="Actividad">
 						<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $proveedore['Proveedore']['identificacion']), array('class'=>'btn btn-xs btn-primary')); ?>
-						<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $proveedore['Proveedore']['identificacion']), array('class'=>'btn btn-xs btn-success')); ?>
-						<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $proveedore['Proveedore']['identificacion']), array('confirm' => __('Esta seguro de eliminar a # %s?', $proveedore['Proveedore']['identificacion']), 'class'=>'btn btn-xs btn-danger')); ?>
+						<?php if($current_user['role']=='Administrador'){?>
+							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $proveedore['Proveedore']['identificacion']), array('class'=>'btn btn-xs btn-success')); ?>
+							<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $proveedore['Proveedore']['identificacion']), array('confirm' => __('Esta seguro de eliminar a # %s?', $proveedore['Proveedore']['identificacion']), 'class'=>'btn btn-xs btn-danger')); ?>
+						<?php }?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
