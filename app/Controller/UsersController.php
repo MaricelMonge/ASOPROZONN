@@ -17,46 +17,30 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 	public $helpers=array('Html', 'Form', 'Time', 'Js');
-	
-	public function beforeFilter()
-	{
-		parent::beforeFilter();
-		$this->Auth->allow('add');
-	}
-	
-	public function isAuthorized($user)
-	{
-		if($user['role'] == 'Administrador')
-		{
-			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'edit_role', 'delete')))
-			{
+
+	public function isAuthorized($user){
+		if($user['role'] == 'Administrador'){
+			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'edit_role', 'delete'))){
 				return true;
 			}
-			else
-			{
-				if($this->Auth->user('id'))
-				{
-					$this->Session->setFlash('No puede acceder', 'default', array('class' => 'alert alert-danger'));
+			else{
+				if($this->Auth->user('id')){
+					$this->Session->setFlash('No puede acceder a la página solicitada', 'default', array('class' => 'alert alert-danger'));
 					$this->redirect($this->Auth->redirect());
 				}
 			}
 		}
-		if($user['role'] == 'Socio')
-		{
-			if(in_array($this->action, array('view', 'edit', 'index')))
-			{
+		if($user['role'] == 'Socio'){
+			if(in_array($this->action, array('view', 'edit', 'index'))){
 				return true;
 			}
-			else
-			{
-				if($this->Auth->user('id'))
-				{
-					$this->Session->setFlash('No puede acceder', 'default', array('class' => 'alert alert-danger'));
+			else{
+				if($this->Auth->user('id')){
+					$this->Session->setFlash('No puede acceder a la página solicitada', 'default', array('class' => 'alert alert-danger'));
 					$this->redirect($this->Auth->redirect());
 				}
 			}
 		}
-		
 		return parent::isAuthorized($user);
 	}
 	
@@ -68,7 +52,7 @@ class UsersController extends AppController {
 			{
 				return $this->redirect($this->Auth->redirectUrl());
 			}
-			$this->Session->setFlash('Usuario y/o contraseña son incorrectos!', 'default', array('class' => 'alert alert-danger'));
+			$this->Session->setFlash('Usuario y/o contraseña son incorrectos.', 'default', array('class' => 'alert alert-danger'));
 		}
 	}
 	

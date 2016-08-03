@@ -17,6 +17,32 @@ class PagosController extends AppController {
  */
 	public $components = array('RequestHandler','Session');
 	public $helpers=array('Html', 'Form', 'Time', 'Js');
+	
+	public function isAuthorized($user){
+		if($user['role'] == 'Administrador'){
+			if(in_array($this->action, array('add', 'index', 'delete'))){
+				return true;
+			}
+			else{
+				if($this->Auth->user('id')){
+					$this->Session->setFlash('No puede acceder a la página solicitada', 'default', array('class' => 'alert alert-danger'));
+					$this->redirect($this->Auth->redirect());
+				}
+			}
+		}
+		if($user['role'] == 'Socio'){
+			if(in_array($this->action, array())){
+				return true;
+			}
+			else{
+				if($this->Auth->user('id')){
+					$this->Session->setFlash('No puede acceder a la página solicitada', 'default', array('class' => 'alert alert-danger'));
+					$this->redirect($this->Auth->redirect());
+				}
+			}
+		}
+		return parent::isAuthorized($user);
+	}
 
 /**
  * index method

@@ -55,7 +55,7 @@ class AppController extends Controller {
     
     public function beforeFilter()
     {
-        $this->Auth->allow('login', 'logout', 'menu', 'add');
+        $this->Auth->allow('login', 'logout', 'menu');
         $this->set('current_user', $this->Auth->user());
     }
     
