@@ -20,7 +20,7 @@ class UsersController extends AppController {
 
 	public function isAuthorized($user){
 		if($user['role'] == 'Administrador'){
-			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'edit_role', 'delete'))){
+			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'edit_role', 'delete', 'edit_image', 'new_password'))){
 				return true;
 			}
 			else{
@@ -31,7 +31,7 @@ class UsersController extends AppController {
 			}
 		}
 		if($user['role'] == 'Socio'){
-			if(in_array($this->action, array('view', 'edit', 'index'))){
+			if(in_array($this->action, array('view', 'edit', 'index', 'edit_image', 'new_password'))){
 				return true;
 			}
 			else{
@@ -169,6 +169,80 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->find('first', $options);
 		}
 	}
+	
+		public function edit_image($id = null) {
+		if (!$this->User->exists($id)) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('El socio se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('El socio no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
+			}
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+			$this->request->data = $this->User->find('first', $options);
+		}
+	}
+	
+	public function new_password()
+ 	{ 
+ 		// return debug($this->request->data);
+ 		$this->User->recursive=-1;
+        $passwordHasher = new BlowfishPasswordHasher();
+        if ($this->request->is(array('post', 'put'))) {
+        //Hashea la nueva contraseña.
+	   	$pass1 = $passwordHasher->hash(
+	            $this->request->data['User']['new_password']);
+	    //Crea una contraseña hasheada con respecto al key utilizado en la nueva contraseña ($pass1).
+	    $pass2 = Security::hash($this->request->data['User']['repeat_password'],'blowfish',$pass1);
+ 		//Compara que las contraseña ingresada por el usuario sea igual a la almacenada por la base de datos.
+ 		$pass=$this->User->find('first', array('conditions' => array('User.username' => $_SESSION['Auth']['User']['username'])));
+ 		
+ 		//Contraseña ya hasheada para comparar por la existente en la base de datos.
+ 		$pass40=Security::hash($this->request->data['User']['actual_password'],'blowfish',$pass['User']['password']);
+ 		//Compara la cotraseña ingresada con la que se encuentra almacenada en la base de datos.
+ 		if($pass40 == $pass['User']['password'])
+ 		{
+ 			//Compara que las contraseñas ingresadas por el usuario sean iguales.
+ 			if($pass1 == $pass2)
+ 			{
+
+ 				$this->User->id = $pass['User']['id'];
+ 				if($this->User->savefield('password',$this->request->data['User']['repeat_password']))
+ 				{
+ 					//En caso de que lograra modificar la contraseña, se devuelve a su perfil.
+                    $this->Flash->success(__('La contraseña ha sido actualizada.'));
+					return $this->redirect(array('action' => 'index'));
+ 				}
+ 				 else 
+ 				 {
+ 				 	//En caso de que no lograra moficar su contraseña, se le notifica.
+					$this->Flash->error(__('Imposible actualizar la contraseña. Contacte al administrador del sitio.'));
+					return $this->redirect(array('action' => 'index'));
+ 				 }
+ 			}
+ 			else
+ 			{
+ 				//Si las contraseñas ingresadas no son iguales notifica al usuario
+ 				$this->Flash->error(__('Las contraseñas ingresadas no son iguales.'));
+				return $this->redirect(array('action' => 'index'));
+ 			}
+ 		}
+ 		else
+ 		{ 
+ 				//Si la contraseña no corresponde a la contraseña gusrdada notifica al usuario con un mensaje de error
+ 				$this->Flash->error(__('La contraseña ingresada no es igual a la almacenada en el sistema.'));
+ 				return $this->redirect(array('action' => 'index'));
+ 		}
+ 		
+ 	}
+	
+ 	}
+	
+	
 	
 
 /**

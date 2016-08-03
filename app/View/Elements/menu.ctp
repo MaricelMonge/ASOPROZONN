@@ -100,7 +100,16 @@
                 <?php echo $this->Html->link('Pedidos', array('controller'=>'pedidos', 'action'=>'view'), array('class'=>'btn btn-info navbar-btn'));?>
             <?php }?>  
            <?php if(isset($current_user)): ?>
-                <?php echo $this->Html->link('Cerrar sesión', array('controller'=>'users', 'action'=>'logout'), array('class'=>'btn btn-success navbar-btn'));?>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Usuario <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><?php echo $this->Html->link('Cambiar perfil', array('controller'=>'users', 'action'=>'edit', $current_user['id']));?></li>
+                       <li><?php echo $this->Html->link('Cambiar foto', array('controller'=>'users', 'action'=>'edit_image',$current_user['id']));?></li>
+                       <li><?php echo $this->Html->link('Cambiar contraseña', array('controller'=>'users', 'action'=>'new_password',$current_user['id']));?></li>
+                       <li><?php echo $this->Html->link('Cerrar sesión', array('controller'=>'users', 'action'=>'logout'), array('class'=>'btn btn-success navbar-btn'));?></li>
+                  </ul>
+                </li>
+
             <?php endif; ?>
           
           </ul>

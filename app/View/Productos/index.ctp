@@ -29,9 +29,11 @@
 					</td>
 					<td class="actions">
 						<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $producto['Producto']['codigo']),  array('class'=>'btn btn-xs btn-primary')); ?>
-						<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $producto['Producto']['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
-						<?php echo $this->Form->button('Comprar', array('class' => 'btn btn-xs btn-success addtocart', 'id' => $producto['Producto']['codigo']) );?>
-						<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $producto['Producto']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $producto['Producto']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
+						<?php if($current_user['role']=='Administrador'){?>
+							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $producto['Producto']['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
+							<?php echo $this->Form->button('Comprar', array('class' => 'btn btn-xs btn-success addtocart', 'id' => $producto['Producto']['codigo']) );?>
+							<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $producto['Producto']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $producto['Producto']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
+						<?php }?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
