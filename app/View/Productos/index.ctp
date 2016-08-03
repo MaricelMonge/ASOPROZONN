@@ -31,6 +31,7 @@
 						<?php echo $this->Html->link(__('Detalles'), array('action' => 'view', $producto['Producto']['codigo']),  array('class'=>'btn btn-xs btn-primary')); ?>
 						<?php if($current_user['role']=='Administrador'){?>
 							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $producto['Producto']['codigo']), array('class'=>'btn btn-xs btn-warning')); ?>
+							<?php echo $this->Html->link(__('Editar foto'), array('action' => 'edit_image', $producto['Producto']['codigo']), array('class'=>'btn btn-xs btn-info')); ?>
 							<?php echo $this->Form->button('Comprar', array('class' => 'btn btn-xs btn-success addtocart', 'id' => $producto['Producto']['codigo']) );?>
 							<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $producto['Producto']['codigo']), array('confirm' => __('Esta seguro de eliminar a # %s?', $producto['Producto']['codigo']), 'class'=>'btn btn-xs btn-danger')); ?>
 						<?php }?>

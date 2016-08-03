@@ -26,7 +26,7 @@ class InsumosController extends AppController {
 
 	public function isAuthorized($user){
 		if($user['role'] == 'Administrador'){
-			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'delete'))){
+			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'delete', 'edit_image'))){
 				return true;
 			}
 			else{
@@ -125,6 +125,24 @@ class InsumosController extends AppController {
 		$proveedores = $this->Insumo->Proveedore->find('list');
 		$this->set(compact('proveedores'));
 	}
+	
+	public function edit_image($id = null) {
+		if (!$this->Insumo->exists($id)) {
+			throw new NotFoundException(__('Invalid insumo'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Insumo->save($this->request->data)) {
+				$this->Session->setFlash('El insumo se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('El insumo no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
+			}
+		} else {
+			$options = array('conditions' => array('Insumo.' . $this->Insumo->primaryKey => $id));
+			$this->request->data = $this->Insumo->find('first', $options);
+		}
+	}
+	
 
 /**
  * delete method

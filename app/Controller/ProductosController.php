@@ -20,7 +20,7 @@ class ProductosController extends AppController {
 	
 	public function isAuthorized($user){
 		if($user['role'] == 'Administrador'){
-			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'delete'))){
+			if(in_array($this->action, array('add', 'index', 'view', 'edit', 'delete', 'edit_image'))){
 				return true;
 			}
 			else{
@@ -125,6 +125,25 @@ class ProductosController extends AppController {
 		$users = $this->Producto->User->find('list');
 		$this->set(compact('users'));
 	}
+	
+	public function edit_image($id = null) {
+		if (!$this->Producto->exists($id)) {
+			throw new NotFoundException(__('Invalid producto'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Producto->save($this->request->data)) {
+				$this->Session->setFlash('El producto se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('El producto no se guardó. Por favor vuelva a intentarlo.', 'default', array('class' => 'alert alert-danger'));
+			}
+		} else {
+			$options = array('conditions' => array('Producto.' . $this->Producto->primaryKey => $id));
+			$this->request->data = $this->Producto->find('first', $options);
+		}
+	}
+	
+	
 
 /**
  * delete method
