@@ -15,7 +15,7 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('Flash', 'Session');
 	public $helpers=array('Html', 'Form', 'Time', 'Js');
 
 	public function isAuthorized($user){
@@ -115,6 +115,7 @@ class UsersController extends AppController {
 		$this->loadModel('Producto');
 		if ($this->request->is('post')) {
 			$this->User->create();
+				$this->request->data['User']['password'] = 'asoprozonn';
 				$this->request->data['User']['role'] = 'Socio';
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('El socio se guardó correctamente.', 'default', array('class' => 'alert alert-success'));	

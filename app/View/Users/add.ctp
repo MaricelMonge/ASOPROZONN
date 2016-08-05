@@ -10,8 +10,6 @@
 				</div>
 				<?php
 					echo $this->Form->input('username', array('class'=>'form-control','label'=>'Identificación:'));
-					echo $this->Form->input('password', array('class'=>'form-control','label'=>'Contraseña:'));
-					// echo $this->Form->input('role');
 					echo $this->Form->input('nombre', array('class'=>'form-control','label'=>'Nombre:'));
 					echo $this->Form->input('apellido1', array('class'=>'form-control','label'=>'Primer Apellido:'));
 					echo $this->Form->input('apellido2', array('class'=>'form-control','label'=>'Segundo Apellido:'));

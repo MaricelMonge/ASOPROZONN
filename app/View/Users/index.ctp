@@ -1,11 +1,3 @@
-<?php
-$this->Paginator->options(array('update'=>'#contenedor-users',
-'before'=>$this ->Js->get('#procesando')->effect('fadeIn', array('buffer'=>false)),
-'complete'=>$this->Js->get('#procesando')->effect('fadeOut', array('buffer'=>false))
-));
-
-?>
-
 <div id="contenedor-users">
 	<div class="page-header">
 		<font color="green">
@@ -53,13 +45,12 @@ $this->Paginator->options(array('update'=>'#contenedor-users',
 		</table>
 	</div>
 	<p align=center>
-		<?php echo $this->Paginator->counter(array('format' => __('Página {:page} de {:pages}')));?>
+		<?php echo $this->Paginator->counter(array('format' => __('Página {:page} de {:pages}')));?>	
 	</p>
-	<div align=center class="paging">
+	<div class="paging" align=center>
 		<?php
-			echo $this->Paginator->prev('< '.__('Anterior'), array(), null, array('class' => 'btn btn-xs btn-info'));
+			echo $this->Paginator->prev('< ' .__('Anterior'), array(), null, array('class' => 'btn btn-xs btn-info'));
 			echo $this->Paginator->next(__('Siguiente') . ' >', array(), null, array('class' => 'btn btn-xs btn-info'));
 		?>
-		<?php echo $this->Js->writeBuffer();?>
 	</div>
 </div>
